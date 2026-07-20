@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="4" y="4" width="92" height="92" rx="14" fill="#7fa3ad"/>
+  <rect x="4" y="4" width="92" height="92" rx="14" fill="none" stroke="#b8935a" stroke-width="2"/>
+  <text x="50" y="54" font-family="KaiTi, STKaiti, serif" font-size="52" fill="#f2f5f4" text-anchor="middle" dominant-baseline="central">天</text>
+</svg>
