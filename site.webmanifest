@@ -1,0 +1,14 @@
+{
+  "name": "天雨流芳 · 个人网站",
+  "short_name": "天雨流芳",
+  "description": "天雨流芳的个人网站",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ],
+  "theme_color": "#1f2933",
+  "background_color": "#f2f5f4",
+  "display": "standalone",
+  "start_url": "/"
+}
