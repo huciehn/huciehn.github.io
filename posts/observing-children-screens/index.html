@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="你一定见过这样的画面：一岁多的小家伙坐在地垫上，眼睛一眨不眨地盯着屏幕里的动画，看到兴奋处手舞足…"><meta name="generator" content="Astro v5.18.2"><title>研究者怎样观察屏幕前的幼儿？ · 天雨流芳</title><!-- 昼夜主题防闪烁：首绘前从 localStorage 恢复，默认白天 --><script>
+      (function () {
+        var theme = null;
+        try {
+          // 版本迁移：旧站存过 dark，强制重置为白天默认
+          if (localStorage.getItem('theme-ver') !== '2') {
+            localStorage.removeItem('theme');
+            localStorage.setItem('theme-ver', '2');
+          }
+          theme = localStorage.getItem('theme');
+        } catch (e) { /* 隐私模式 */ }
+        if (!theme) theme = 'light';
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script><!-- 网站图标：白文印「天雨流芳」（用户提供的原图压缩版） --><link rel="icon" type="image/png" sizes="192x192" href="/icons/favicon-192.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#1f2933"><meta name="apple-mobile-web-app-title" content="天雨流芳"><!-- 字体：仿宋（标题）、思源宋体（正文）、Cormorant（西文） --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=FangSong&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><!-- SPA 式页面转场：不支持的浏览器自动降级为普通导航 --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><link rel="stylesheet" href="/_astro/index.D699TcZ6.css">
+<style>.post-wrap[data-astro-cid-l6a6buid]{padding-block:4rem 2rem}.post-page[data-astro-cid-l6a6buid]{min-width:0}.post-head[data-astro-cid-l6a6buid]{text-align:center;margin-bottom:1rem}.post-cat[data-astro-cid-l6a6buid]{color:var(--celadon);font-size:.85rem;letter-spacing:.4em;text-indent:.4em;margin:0 0 1rem}.post-title[data-astro-cid-l6a6buid]{font-size:2.4rem;margin:0 0 1rem;letter-spacing:.08em}.post-date[data-astro-cid-l6a6buid]{color:var(--ink-soft);font-size:.9rem;margin:0}.post-date[data-astro-cid-l6a6buid] time[data-astro-cid-l6a6buid]{font-family:var(--font-latin);letter-spacing:.05em}.post-head[data-astro-cid-l6a6buid] .divider[data-astro-cid-l6a6buid]{margin:2rem auto 1rem}.divider-diamond[data-astro-cid-l6a6buid]{font-size:.6rem}.post-foot[data-astro-cid-l6a6buid]{margin-top:4rem;padding-top:2rem;border-top:var(--hairline);text-align:center}.post-foot[data-astro-cid-l6a6buid] .post-nav[data-astro-cid-l6a6buid]{text-align:left;margin:0 0 2.5rem}.back-link[data-astro-cid-l6a6buid]{font-size:.95rem;letter-spacing:.2em;color:var(--celadon)}@media(max-width:1100px){.post-wrap[data-astro-cid-l6a6buid]{width:min(100% - 3rem,var(--max-prose));grid-template-columns:minmax(0,1fr)}}@media(max-width:640px){.post-title[data-astro-cid-l6a6buid]{font-size:1.8rem}}
+</style></head> <body> <!-- 生成式水墨山水背景 + 江南雨丝（persist，换页不重启） --> <canvas id="ink-bg" aria-hidden="true" data-astro-transition-persist="astro-bl2rsxt4-1"></canvas> <canvas id="fx-rain" aria-hidden="true" data-astro-transition-persist="astro-62bt2kxk-2"></canvas> <!-- 开卷动画：每会话首次到访首页时钤印展开，JS 控制 --> <div id="intro-overlay" aria-hidden="true"> <span class="intro-seal"><img class="seal" src="/seal.png" width="92" height="92" alt="天雨流芳之印" loading="eager" decoding="async" style="width:92px;height:92px;padding:0px" data-astro-cid-u7cnqnia> </span> <span class="intro-word">开卷</span> </div> <div id="scroll-progress" aria-hidden="true"></div> <header class="site-header" data-astro-cid-3ef6ksr2> <div class="container header-inner" data-astro-cid-3ef6ksr2> <a href="/" class="brand" data-astro-cid-3ef6ksr2> <img class="seal" src="/seal.png" width="44" height="44" alt="天雨流芳之印" loading="eager" decoding="async" style="width:44px;height:44px;padding:4px" data-astro-cid-u7cnqnia>  <span class="brand-name" data-astro-cid-3ef6ksr2> <img src="/xuxiaoao-h.png" alt="徐小嗷" width="691" height="240" data-astro-cid-3ef6ksr2> </span> </a> <nav class="main-nav" aria-label="主导航" data-astro-cid-3ef6ksr2> <a href="/posts/" class="nav-link" aria-current="page" data-astro-cid-3ef6ksr2> 随笔 </a><a href="/notes/" class="nav-link" data-astro-cid-3ef6ksr2> 笔记 </a><a href="/archive/" class="nav-link" data-astro-cid-3ef6ksr2> 编年 </a><a href="/about/" class="nav-link" data-astro-cid-3ef6ksr2> 关于 </a><a href="/resume/" class="nav-link" data-astro-cid-3ef6ksr2> 简历 </a> <a href="/en/posts/observing-children-screens/" class="lang-switch" lang="en" data-astro-cid-3ef6ksr2> EN </a> </nav> <div class="header-actions" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn" data-search-open aria-label="搜索" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <circle cx="11" cy="11" r="7" data-astro-cid-3ef6ksr2></circle> <path d="m20 20-3.8-3.8" data-astro-cid-3ef6ksr2></path> </svg> <kbd data-astro-cid-3ef6ksr2>Ctrl K</kbd> </button> <button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-dark="夜航" data-label-light="昼行" aria-label="夜航" aria-pressed="false"> <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <circle cx="12" cy="12" r="4.4"></circle> <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path> </svg> <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2Z"></path> </svg> </button> <button type="button" class="icon-btn menu-btn" data-menu-open aria-label="菜单" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M4 7h16M4 12h16M4 17h16" data-astro-cid-3ef6ksr2></path> </svg> </button> </div> </div> </header> <!-- 移动端抽屉 --> <div class="drawer-backdrop" aria-hidden="true" data-astro-cid-3ef6ksr2></div> <nav class="drawer" aria-label="移动端导航" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn drawer-close" data-menu-close aria-label="收起" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M6 6l12 12M18 6L6 18" data-astro-cid-3ef6ksr2></path> </svg> </button> <a href="/" data-astro-cid-3ef6ksr2>首页</a> <a href="/posts/" data-astro-cid-3ef6ksr2>随笔</a><a href="/notes/" data-astro-cid-3ef6ksr2>笔记</a><a href="/archive/" data-astro-cid-3ef6ksr2>编年</a><a href="/about/" data-astro-cid-3ef6ksr2>关于</a><a href="/resume/" data-astro-cid-3ef6ksr2>简历</a> <a href="/en/posts/observing-children-screens/" lang="en" data-astro-cid-3ef6ksr2>EN</a> </nav>  <main>  <div class="post-wrap" data-astro-cid-l6a6buid> <article class="post-page" data-astro-cid-l6a6buid> <header class="post-head ink-in" data-astro-cid-l6a6buid> <p class="post-cat" data-astro-cid-l6a6buid>笔记</p> <h1 class="post-title" data-astro-cid-l6a6buid>研究者怎样观察屏幕前的幼儿？</h1> <p class="post-date" data-astro-cid-l6a6buid> 撰于 <time datetime="2026-08-04T00:00:00.000Z" data-astro-cid-l6a6buid>二〇二六年八月四日</time> </p> <p class="post-meta-line" data-astro-cid-l6a6buid> <span data-astro-cid-l6a6buid>共 3,008 字 · 约 8 分钟</span> </p>  <div class="divider" aria-hidden="true" data-astro-cid-l6a6buid> <span class="divider-diamond" data-astro-cid-l6a6buid>◆</span> </div> </header> <div class="post-tools ink-in ink-in-d1" data-astro-cid-l6a6buid> <button type="button" class="tool-btn" data-vertical-toggle data-label-on="竖排" data-label-off="横排" aria-pressed="false" data-astro-cid-l6a6buid> 竖排 </button> </div> <div class="md-body ink-in ink-in-d1" data-copy-label="复制" data-copied-label="已复制" data-astro-cid-l6a6buid> <p>你一定见过这样的画面：一岁多的小家伙坐在地垫上，眼睛一眨不眨地盯着屏幕里的动画，看到兴奋处手舞足蹈，嘴里咿咿呀呀说个不停。家里人也许会说，这孩子被迷住了，看傻了。可你想过没有，如果有一位研究者坐在旁边，手里拿着记录本，又会看到什么？</p>
+<p>这就是行为编码：把观察变成科学。</p>
+<blockquote>
+<p>🐬 想想说：今天我们不聊研究，我们聊聊巧妙的研究方法。</p>
+</blockquote>
+<h2 id="行为编码凭什么成为科学方法">行为编码凭什么成为科学方法</h2>
+<p>**行为编码不是简单地看孩子做什么，而是在事先约定的规则下，把行为转化成可以统计的数据。**Bakeman和Gottman（1997）在《Observing interaction:An introduction to sequential analysis》中大致说明了以下原则： 首先，行为要有可操作的定义，皱眉代表困惑还是专注，必须事先规定。其次，至少两人独立编码同一段视频，计算判断一致的比例，kappa达0.75以上说明编码效果非常好。最后，编码结果必须与具体的问题对应，脱离上下文的标签没有意义。</p>
+<p>Pecora等人（2007）编的《Children and television:fifty years of research》收录了两千多项与视频相关的研究，方法越来越精密，但这些相关原则始终未变。</p>
+<h2 id="画中画同步把两段视频严丝合缝地对在一起">画中画同步：把两段视频严丝合缝地对在一起</h2>
+<p>一个直观的思路来自Howard和Roberts（2002）对《天线宝宝》的研究。她们请20个不到两岁的宝宝看节目，同时录下每个孩子的反应。把节目画面和孩子画面拼成画中画，时间轴严丝合缝。屏幕上在演什么，孩子此刻在做什么，一秒都不差。</p>
+<p>她们把孩子的反应编码为八大类：注意水平、准社会互动、认知反应、愉悦反应等。两位研究者反复观看、核对，直到判断一致，还请了研究助理独立编码验证。这套方法的精髓在于同步，让每个反应都有了精确的参照。</p>
+<p>画中画同步的思路并不始于天线宝宝。1976年，Anderson和Levin在Child Development上报告了一项经典研究。他们把72名1到4岁的孩子请进实验室看《芝麻街》，观察者持续追踪视线方向，将每一次看向和移开屏幕的时刻逐秒记录存入电脑。</p>
+<p>他们发现年龄越大的孩子单次注视时间越长（年幼&#x3C;60秒，年长可达7分钟）。更关键的是，他们将注意模式与节目的具体属性（动画、音乐、儿童声音、镜头切换）对应分析，发现有的特定信息能抓住注意，而其他信息则让注意流失。</p>
+<p>Huston和Wright（1983）据此提出：电视的视听形式，包括画面切换、音乐类型、角色声音等，本身就是一套孩子可以学会的语法系统，指引他们什么时候该看、什么时候该想。</p>
+<h2 id="穿戴相机追到家里去看">穿戴相机：追到家里去看</h2>
+<p>**实验室里的观察或许精确，但孩子真正使用屏幕的场景是家里的客厅和卧室。**Machell等人（2026）给2到5岁的孩子戴上胸前小相机，以第一视角记录屏幕使用，再逐秒编码。编码维度涵盖设备类型、屏幕活动、内容质量、社交情境、共看伙伴和伴随行为近十个方面。</p>
+<p>这套方法的优势在于生态效度，也就是研究结果能多大程度上反映真实生活。不需要请孩子来实验室，也不需要家长凭回忆填问卷，相机会忠实地记录一切。结果发人深省：电视仍占孩子屏幕时间的九成以上，而节目的教育价值评分很低，有三分之一的节目被判定为年龄不适合。</p>
+<h2 id="瞬时捕捉在日常的碎片里抽样">瞬时捕捉：在日常的碎片里抽样</h2>
+<p>实验室太受控，穿戴相机又太费时。还有一个折中的办法。Coyne等人（2023）在一项名为Media in the Moment的研究中，请231个家庭的父母在收到手机提示时，拍一段10到15秒的视频，前提是此刻孩子正在用屏幕。研究者随后对这些短视频编码，记录环境、行为和媒体特征。</p>
+<p>这种方法属于生态瞬时评估（Ecological Momentary Assessment），本质是在日常生活里随机截取碎片，拼出一幅真实的行为画像。研究发现：孩子看屏幕时表情大多是平静甚至淡漠的，不像广告里那样兴奋雀跃。而且多数时候有另一个人在场，通常是兄弟姐妹，未必是父母。这些细致入微的观察，问卷永远问不出来。</p>
+<h2 id="对大人进行观察">对大人进行观察</h2>
+<p>前面的方法主要关注孩子怎么看屏幕，但在现实生活中，很少有孩子是完全独自观看的。<strong>父母在旁边说什么、做什么，同样影响深远。</strong></p>
+<p>早在 2008 年，Barr 就通过居家录像观察亲子共看 DVD 的全过程，把家长陪伴行为做编码归类，分出两类截然不同的陪伴模式：一类是高频支架型家长，看片时持续提问、讲解画面，主动把剧情和孩子的真实生活关联；另一类是低频陪伴家长，全程沉默、极少互动。两种模式下孩子专注屏幕的状态差距悬殊，高频支架组孩子 79% 的时间能持续投入内容，低频沉默组仅 47%。可见家长主动引导，能直接改变孩子从屏幕里获得的收获。</p>
+<p>Chakranon 等人 2024 年追踪 277 名幼儿至 3 岁发现：只有母婴互动薄弱的家庭里，长时间看屏幕才会显著提升孩子躯体不适、退缩、攻击等行为问题；亲子互动充足优质能抵消许多屏幕带来的负面影响。Gueron-Sela 和 Gordon-Hacker（2020）对 199 对母子在 18、22 和 26 个月追踪，综合了孩子看电视、背景电视、母亲用屏幕安抚和自身用手机的频率，合成累积媒体风险指数，发现 18 个月时的累积风险越高，后续的专注力就越差。</p>
+<p><strong>简言之，屏幕本身并非洪水猛兽，父母是否主动、用心地和孩子建立双向互动，才是区分屏幕利弊的关键因素。</strong></p>
+<h2 id="触摸屏新的设备新的编码挑战">触摸屏：新的设备，新的编码挑战</h2>
+<p>当屏幕变成可以触摸的平板和手机，编码难度也升级了。孩子不光看，还要点、滑、拖等等。Munzer等人（2021）曾让72对亲子分别用纸质绘本和电子平板读同一个童谣，以5秒为单元编码父母的话语。结果发现平板条件下孩子的语言反应显著少于纸质书。媒介形式变了，互动的逻辑也在变。</p>
+<p>Samuelsson等人（2022）进一步发现，孩子虽然话少了，但触摸动作本身常常具有交流功能，比如用手指指屏幕来回答问题。编码不能只看嘴，还要看手。Portugal等人（2021）的眼动追踪从12个月追踪到3.5岁，发现高频触摸屏儿童捕捉外部刺激更快了，但控制注意的能力更弱了。</p>
+<h2 id="跨文化视角不同文化里的父母怎么管">跨文化视角：不同文化里的父母怎么管</h2>
+<p>行为编码还能用来比较不同文化里亲子媒体互动的差异。Shin和Lwin（2022）比较新加坡和澳大利亚各三百多位父母，发现澳大利亚父母在主动讨论、限制使用和监控上更积极，新加坡父母则更倾向把屏幕作为教育工具。这种差异提醒我们，编码方案需要考虑文化适用性。</p>
+<p>国内学者（张晴，2023）调研显示，近六成学前儿童每日看屏超1小时，两成存在媒介沉迷，亲子共看是最有效的防护方式。另外一些学者（韩春花&#x26;胡家欣，2025）针对302名三岁幼儿的研究证实，亲子互动能缓冲屏幕暴露对语言发展的负面影响。两项本土研究共同说明，<strong>高质量亲子陪伴对儿童发展的影响，远大于屏幕本身。</strong></p>
+<h2 id="给家长的提醒">给家长的提醒</h2>
+<p>第一，别以为孩子看动画只是被动 “看热闹”。宝宝盯着屏幕的时候大脑一直在主动接收信息，并不是呆呆地被画面牵着走，<strong>远比我们想象得更投入。</strong></p>
+<p>第二，比起纠结一共看了多久，<strong>陪孩子一起看、好好互动更加重要</strong>。同样是看动画片，家长一言不发在旁边刷手机，和跟着画面提问、聊天、联系生活，带给孩子的收获差别很大。高质量的亲子陪伴，能大大抵消屏幕带来的负面影响。</p>
+<p>第三，不仅要管住看屏幕的时长，也要留心看什么、怎么看。动画、童声画面很容易吸引孩子目光，**但家长要帮忙筛选内容：**优先选愿意留出停顿、能引导孩子思考、方便亲子交流的节目，避开节奏过快、缺少互动空间的短视频。</p>
+<blockquote>
+<p>🐬 想想说：原来研究者看宝宝，就像侦探拿着放大镜。</p>
+</blockquote>
+<h2 id="参考文献">参考文献</h2>
+<blockquote>
+<p>Anderson, D. R., &#x26; Levin, S. R. (1976). Young children’s attention to “Sesame Street”.Child Development,47(3), 806–811. <a href="https://doi.org/10.2307/1128198">https://doi.org/10.2307/1128198</a></p>
+</blockquote>
+<blockquote>
+<p>Bakeman, R., &#x26; Gottman, J. M. (1997).Observing interaction: An introduction to sequential analysis(2nd ed.). Cambridge University Press.</p>
+</blockquote>
+<blockquote>
+<p>Barr, R., Zack, E., Garcia, A., &#x26; Muentener, P. (2008). Infants’ attention and responsiveness to television increases with prior exposure and parental interaction.Infancy,13(1), 30–56. <a href="https://doi.org/10.1080/15250000701779378">https://doi.org/10.1080/15250000701779378</a></p>
+</blockquote>
+<blockquote>
+<p>Chakranon, P., Huang, JP., Au, HK.*et al.*The importance of mother-child interaction on smart device usage and behavior outcomes among toddlers: a longitudinal study.<em>Child Adolesc Psychiatry Ment Health</em><strong>18</strong>, 79 (2024). <a href="https://doi.org/10.1186/s13034-024-00772-6">https://doi.org/10.1186/s13034-024-00772-6</a></p>
+</blockquote>
+<blockquote>
+<p>Coyne, S., Gale, M., Ashby, S., Memmott-Elison, M. K., Holmgren, H. G., Barr, R., Christensen-Duerden, C., &#x26; Brown, S. (2023). Media in the moment: An observational assessment of the digital media context in early childhood.Translational Issues in Psychological Science,9(3), 186–198. <a href="https://doi.org/10.1037/tps0000377">https://doi.org/10.1037/tps0000377</a></p>
+</blockquote>
+<blockquote>
+<p>Gueron-Sela N and Gordon-Hacker A (2020) Longitudinal Links Between Media Use and Focused Attention Through Toddlerhood: A Cumulative Risk Approach.Front. Psychol. 11:569222. doi: 10.3389/fpsyg.2020.569222</p>
+</blockquote>
+<blockquote>
+<p>Howard, S., &#x26; Roberts, S. (2002). Winning hearts and minds: Television and the very young audience.Contemporary Issues in Early Childhood,3(3), 315–337. <a href="https://doi.org/10.2304/ciec.2002.3.3.2">https://doi.org/10.2304/ciec.2002.3.3.2</a></p>
+</blockquote>
+<blockquote>
+<p>Huston, A. C., &#x26; Wright, J. C. (1983). Children’s processing of television: The informative functions of formal features. In J. Bryant &#x26; D. R. Anderson (Eds.),Children’s understanding of television: Research on attention and comprehension(pp. 35–68). Academic Press.</p>
+</blockquote>
+<blockquote>
+<p>Machell, A., Downing, K., Verswijveren, S. J. J. M., &#x26; Hesketh, K. D. (2026). Using wearable video cameras to assess screen use contexts in preschool-aged children: Pilot observational study.JMIR Pediatrics and Parenting, 9, e85215. <a href="https://doi.org/10.2196/85215">https://doi.org/10.2196/85215</a></p>
+</blockquote>
+<blockquote>
+<p>Munzer, T. G., Miller, A. L., Yeo, S., Wang, Y., McCaffery, H., Kaciroti, N., &#x26; Radesky, J. (2021). Parent verbalizations and toddler responses with touchscreen tablet nursery rhyme apps.Pediatrics,148(6), e20210549964. <a href="https://doi.org/10.1542/peds.2021-049964">https://doi.org/10.1542/peds.2021-049964</a></p>
+</blockquote>
+<blockquote>
+<p>Pecora, N., Murray, J. P., &#x26; Wartella, E. A. (Eds.). (2007).Children and television: Fifty years of research. Lawrence Erlbaum Associates.</p>
+</blockquote>
+<blockquote>
+<p>Portugal, A. M., Bedford, R., Cheung, C. H. M., Mason, L., &#x26; Smith, T. J. (2021). Longitudinal touchscreen use across early development is associated with faster exogenous and reduced endogenous attention control.Sci Rep,11, 2205. <a href="https://doi.org/10.1038/s41598-021-81775-7">https://doi.org/10.1038/s41598-021-81775-7</a></p>
+</blockquote>
+<blockquote>
+<p>Samuelsson, R., Price, S., &#x26; Jewitt, C. (2022). How pedagogical relations in early years settings are reconfigured by interactive touchscreens.British Journal of Educational Technology,53(1), 58–76. <a href="https://doi.org/10.1111/bjet.13152">https://doi.org/10.1111/bjet.13152</a></p>
+</blockquote>
+<blockquote>
+<p>Shin, W., &#x26; Lwin, M. O. (2022). Parental mediation of children’s digital media use in high digital penetration countries: Perspectives from Singapore and Australia.Asian Journal of Communication. <a href="https://doi.org/10.1080/01292986.2022.2026992">https://doi.org/10.1080/01292986.2022.2026992</a></p>
+</blockquote>
+<blockquote>
+<p>韩春花, 胡家欣. (2025). 屏幕暴露对3岁幼儿表达性语言发展的影响：亲子互动的中介作用.早期儿童发展, (1), 56–71.</p>
+</blockquote>
+<blockquote>
+<p>张晴. (2023). 屏幕暴露、父母媒介干预对学前儿童媒介沉迷的影响.学前教育研究, (11), 42–54. <a href="https://doi.org/10.13861/j.cnki.sece.2023.11.001">https://doi.org/10.13861/j.cnki.sece.2023.11.001</a></p>
+</blockquote> </div> <footer class="post-foot" data-astro-cid-l6a6buid> <nav class="post-nav" aria-label="前后文章" data-astro-cid-l6a6buid> <a href="/posts/meeting-manjusri/" class="pn-prev" data-astro-cid-l6a6buid> <span class="pn-dir" data-astro-cid-l6a6buid>← 更新一篇</span> <span class="pn-title" data-astro-cid-l6a6buid>“遇见”文殊</span> </a> <a href="/posts/lot-evidence-formal-logic/" class="pn-next" data-astro-cid-l6a6buid> <span class="pn-dir" data-astro-cid-l6a6buid>更早一篇 →</span> <span class="pn-title" data-astro-cid-l6a6buid>Evidence from formal logical reasoning reveals that the language of thought is not natural language</span> </a> </nav> <a href="/posts/" class="back-link" data-astro-cid-l6a6buid>
+← 返回目录 </a> </footer> </article> <!-- 目次：桌面端右侧sticky，JS 从 h2/h3 生成并滚动高亮 --> <aside class="toc" aria-label="目次" data-astro-cid-l6a6buid> <p class="toc-title" data-astro-cid-l6a6buid>目次</p> <nav id="toc-list" data-astro-cid-l6a6buid></nav> </aside> </div>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <!-- 回纹缎带：连绵不断的几何纹，取"富贵不断头"之意 --> <svg class="meander" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M0 11 V1 H9 V8 H5 V4 H7 V6 M12 11 V1 H21 V8 H17 V4 H19 V6 M24 11 V1 H33 V8 H29 V4 H31 V6 M36 11 V1 H45 V8 H41 V4 H43 V6 M48 11 V1 H57 V8 H53 V4 H55 V6 M60 11 V1 H69 V8 H65 V4 H67 V6 M72 11 V1 H81 V8 H77 V4 H79 V6 M84 11 V1 H93 V8 H89 V4 H91 V6 M96 11 V1 H105 V8 H101 V4 H103 V6 M108 11 V1 H117 V8 H113 V4 H115 V6" fill="none" stroke="var(--gold)" stroke-width="1" data-astro-cid-sz7xmlte></path> </svg> <div class="container footer-inner" data-astro-cid-sz7xmlte> <p class="footer-brand" data-astro-cid-sz7xmlte> <img src="/xuxiaoao-h.png" alt="徐小嗷" width="691" height="240" data-astro-cid-sz7xmlte> </p> <nav class="footer-links" aria-label="页脚导航" data-astro-cid-sz7xmlte> <a href="/posts/" data-astro-cid-sz7xmlte>随笔</a><a href="/notes/" data-astro-cid-sz7xmlte>笔记</a><a href="/archive/" data-astro-cid-sz7xmlte>编年</a><a href="/about/" data-astro-cid-sz7xmlte>关于</a><a href="/resume/" data-astro-cid-sz7xmlte>简历</a> </nav> <p class="footer-meta" data-astro-cid-sz7xmlte>
+© 2026 版权所有 · 以 Astro 构建 · 汝窑天青 </p> </div> </footer>  <div id="search-palette" hidden role="dialog" aria-modal="true" aria-label="搜索" data-empty-text="无所得。换个词试试。" data-hint-text="输入以检索全站文字" data-astro-cid-xao2j2xx> <div class="sp-backdrop" data-search-close data-astro-cid-xao2j2xx></div> <div class="sp-panel" data-astro-cid-xao2j2xx> <div class="sp-input-row" data-astro-cid-xao2j2xx> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-xao2j2xx> <circle cx="11" cy="11" r="7" data-astro-cid-xao2j2xx></circle> <path d="m20 20-3.8-3.8" data-astro-cid-xao2j2xx></path> </svg> <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜一搜标题、正文、分类…" role="combobox" aria-expanded="true" aria-controls="search-results" data-astro-cid-xao2j2xx> <button type="button" class="sp-esc" data-search-close data-astro-cid-xao2j2xx>Esc</button> </div> <ul id="search-results" role="listbox" data-astro-cid-xao2j2xx></ul> <p class="sp-foot" data-astro-cid-xao2j2xx> <span data-astro-cid-xao2j2xx>↑↓</span> 选择 · <span data-astro-cid-xao2j2xx>↵</span> 前往 · <span data-astro-cid-xao2j2xx>Esc</span> 关闭 </p> </div> </div>  <button type="button" id="back-to-top" data-backtop aria-label="回到顶部"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"> <path d="M12 19V5M5 12l7-7 7 7"></path> </svg> <span>回卷</span> </button> <script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.D2tS7kUC.js"></script> </body> </html>
