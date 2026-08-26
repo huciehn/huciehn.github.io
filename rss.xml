@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>天雨流芳 · 随笔</title>
+    <link>https://tianyuliufang.com/</link>
+    <atom:link href="https://tianyuliufang.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>随笔与免费心理资源</description>
+    <language>zh-CN</language>
+    <item>
+      <title>“遇见”文殊</title>
+      <link>https://tianyuliufang.com/posts/meeting-manjusri/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/meeting-manjusri/</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>此文无宗教宣传相关内容，仅为个人经历分享</description>
+    </item>
+    <item>
+      <title>研究者怎样观察屏幕前的幼儿？</title>
+      <link>https://tianyuliufang.com/posts/observing-children-screens/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/observing-children-screens/</guid>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <description>你一定见过这样的画面：一岁多的小家伙坐在地垫上，眼睛一眨不眨地盯着屏幕里的动画，看到兴奋处手舞足…</description>
+    </item>
+    <item>
+      <title>Evidence from formal logical reasoning reveals that the language of thought is not natural language</title>
+      <link>https://tianyuliufang.com/posts/lot-evidence-formal-logic/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/lot-evidence-formal-logic/</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <description>形式逻辑推理的证据表明：思维语言并非自然语言</description>
+    </item>
+    <item>
+      <title>废墟之上：我指挥 AI，夺回了我的整个大学</title>
+      <link>https://tianyuliufang.com/posts/restore-my-university/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/restore-my-university/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>三万多个文件被清空，我用 Kimi K3 和 Agent 把它们全部救回来了</description>
+    </item>
+    <item>
+      <title>别再手动部署 Claude Code 了！</title>
+      <link>https://tianyuliufang.com/posts/claude-code-workbuddy/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/claude-code-workbuddy/</guid>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+      <description>用 WorkBuddy + AI 一键安装 Claude Code，零门槛野路子</description>
+    </item>
+    <item>
+      <title>问一声汝今何处去，望三思何日君再来 | 写在致谢之外</title>
+      <link>https://tianyuliufang.com/posts/farewell-outside-acknowledgment/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/farewell-outside-acknowledgment/</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <description>毕业论文的致谢只写了和论文相关的人，但值得说声谢谢的人太多了</description>
+    </item>
+    <item>
+      <title>师范生本科基本不再输出教师</title>
+      <link>https://tianyuliufang.com/posts/normal-teacher-policy/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/normal-teacher-policy/</guid>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 GMT</pubDate>
+      <description>对梅兵代表言论的一点看法</description>
+    </item>
+    <item>
+      <title>4+2本研衔接师范生专项咨询服务正式启动（长期有效）</title>
+      <link>https://tianyuliufang.com/posts/consulting-service/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/consulting-service/</guid>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <description>为立志从教的学子提供公费师范生政策解读与升学规划</description>
+    </item>
+    <item>
+      <title>好热闹哇</title>
+      <link>https://tianyuliufang.com/posts/so-lively/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/so-lively/</guid>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
+      <description>我也来说几句引引流，若要删除直接留言即可：</description>
+    </item>
+    <item>
+      <title>2026.1的摸鱼！（押一个高考题）</title>
+      <link>https://tianyuliufang.com/posts/moyu-202601/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/moyu-202601/</guid>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 GMT</pubDate>
+      <description>封面为智永《真草千字文》</description>
+    </item>
+    <item>
+      <title>无偏估计与样本方差的完整解析</title>
+      <link>https://tianyuliufang.com/posts/unbiased-estimator-variance/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/unbiased-estimator-variance/</guid>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
+      <description>从协方差到样本方差：无偏性、二阶矩与 n-1 修正的完整推导</description>
+    </item>
+    <item>
+      <title>2025.12的摸鱼~</title>
+      <link>https://tianyuliufang.com/posts/moyu-202512/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/moyu-202512/</guid>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+      <description>将理想心理学现实化：基于AI人格测试</description>
+    </item>
+    <item>
+      <title>致25级师范班师弟师妹们的若干经验分享</title>
+      <link>https://tianyuliufang.com/posts/advice-for-2025-normal-class/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/advice-for-2025-normal-class/</guid>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+      <description>这是2025年11月29日我在2025级师范班学业发展分享会的发言稿，封面为孙过庭《书谱》</description>
+    </item>
+    <item>
+      <title>中华文化赋能中小学心理健康教育：以课程设计为例</title>
+      <link>https://tianyuliufang.com/posts/chinese-culture-mh-education/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/chinese-culture-mh-education/</guid>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 GMT</pubDate>
+      <description>这是我大四时期的教育研习报告，后续会将教案和课件同步更新至公众号，课程内容不重要，重点是希望能够…</description>
+    </item>
+    <item>
+      <title>新手教师讲课感受：实习日记4</title>
+      <link>https://tianyuliufang.com/posts/teaching-diary-4/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/teaching-diary-4/</guid>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 GMT</pubDate>
+      <description>关于这次上课的感受，最后再谈几句。</description>
+    </item>
+    <item>
+      <title>我的心理健康教育事业观：实习日记 3</title>
+      <link>https://tianyuliufang.com/posts/teaching-diary-3/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/teaching-diary-3/</guid>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 GMT</pubDate>
+      <description>除了日常工作中的各类事务，实习期间在国家教育的宏观层面也发生了不少值得关注的事件。</description>
+    </item>
+    <item>
+      <title>AI时代下教师解放了什么：实习日记2</title>
+      <link>https://tianyuliufang.com/posts/teaching-diary-2/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/teaching-diary-2/</guid>
+      <pubDate>Fri, 31 Oct 2025 00:00:00 GMT</pubDate>
+      <description>我是学生处的一块砖，哪里需要哪里搬。</description>
+    </item>
+    <item>
+      <title>县中何以振兴：实习日记1</title>
+      <link>https://tianyuliufang.com/posts/teaching-diary-1/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/teaching-diary-1/</guid>
+      <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
+      <description>关注教育方针政策的大家应该知道，县中振兴是当前以及今后一个时期内的重要工作。当我看到心理督导室里…</description>
+    </item>
+    <item>
+      <title>自我介绍</title>
+      <link>https://tianyuliufang.com/posts/self-intro/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/self-intro/</guid>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 GMT</pubDate>
+      <description>一篇迟来的自我介绍</description>
+    </item>
+    <item>
+      <title>心理健康教育课程逐字稿 | 生涯发展主题</title>
+      <link>https://tianyuliufang.com/posts/mh-curriculum-career/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/mh-curriculum-career/</guid>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 GMT</pubDate>
+      <description>诗和远方，寻即赴往</description>
+    </item>
+    <item>
+      <title>我的教育观</title>
+      <link>https://tianyuliufang.com/posts/my-view-on-education/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/posts/my-view-on-education/</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+      <description>我内心的心理健康教育</description>
+    </item>
+  </channel>
+</rss>

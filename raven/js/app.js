@@ -15,6 +15,7 @@
     cur: 0,
     t0: 0,
     timerId: null,
+    autoNextTimer: null,      // pick 后自动前进的排队句柄
     assetMap: {},             // id -> url（图像模式）
     assetCount: 0,
     assetsReady: false,       // 题图探测完成标志
@@ -23,6 +24,11 @@
   };
 
   var $ = function (id) { return document.getElementById(id); };
+
+  /** 清掉排队的自动前进：改选题 / 手动翻题 / 跳题前必须调用，防止连跳漏答 */
+  function cancelAutoNext() {
+    if (S.autoNextTimer) { clearTimeout(S.autoNextTimer); S.autoNextTimer = null; }
+  }
   var IDS = [];               // A1..E12 顺序
   cfg.SET_ORDER.forEach(function (st) {
     for (var i = 1; i <= 12; i++) IDS.push(st + i);
@@ -159,7 +165,11 @@
     S.t0 = Date.now();
     clearInterval(S.timerId);
     S.timerId = setInterval(function () {
-      $('timer').textContent = fmtTime(Math.floor((Date.now() - S.t0) / 1000));
+      // SPA 导航离开后 DOM 已整体替换，元素不存在时静默跳过，
+      // 等待 before-swap 兜底清理，绝不能在此抛错刷屏
+      var t = $('timer');
+      if (!t) { clearInterval(S.timerId); S.timerId = null; return; }
+      t.textContent = fmtTime(Math.floor((Date.now() - S.t0) / 1000));
     }, 500);
     $('timer').textContent = '00:00';
     show('test');
@@ -226,10 +236,17 @@
   }
 
   function pick(n) {
+    cancelAutoNext();          // 改选时作废旧的前进排队
     S.answers[S.cur] = n;
     renderItem();
-    // 选择后自动前进（末题除外），贴近纸质施测节奏
-    if (S.cur < 59) setTimeout(function () { if (!S.finished) { S.cur++; renderItem(); } }, 180);
+    // 选择后自动前进（末题除外），贴近纸质施测节奏；
+    // 句柄入 S，任何改道（再点选项/前后翻/答题卡跳转）都会被取消
+    if (S.cur < 59) {
+      S.autoNextTimer = setTimeout(function () {
+        S.autoNextTimer = null;
+        if (!S.finished && !document.hidden) { S.cur++; renderItem(); }
+      }, 180);
+    }
   }
 
   function openSheet() {
@@ -240,7 +257,7 @@
       c.className = 'sheet-cell' + (S.answers[i] ? ' answered' : '') + (i === S.cur ? ' current' : '');
       c.textContent = it.id;
       c.title = it.setId + ' 组 第 ' + it.idx + ' 题';
-      c.onclick = function () { S.cur = i; closeSheet(); renderItem(); };
+      c.onclick = function () { cancelAutoNext(); S.cur = i; closeSheet(); renderItem(); };
       grid.appendChild(c);
     });
     var un = S.answers.filter(function (a) { return a == null; }).length;
@@ -260,6 +277,8 @@
 
   function finish() {
     clearInterval(S.timerId);
+    S.timerId = null;
+    cancelAutoNext();
     S.finished = true;
     var perSet = {}, total = 0;
     cfg.SET_ORDER.forEach(function (st) { perSet[st] = 0; });
@@ -384,8 +403,8 @@
     initWelcome();
 
     $('btn-start').onclick = startTest;
-    $('btn-prev').onclick = function () { if (S.cur > 0) { S.cur--; renderItem(); } };
-    $('btn-next').onclick = function () { if (S.cur < 59) { S.cur++; renderItem(); } };
+    $('btn-prev').onclick = function () { if (S.cur > 0) { cancelAutoNext(); S.cur--; renderItem(); } };
+    $('btn-next').onclick = function () { if (S.cur < 59) { cancelAutoNext(); S.cur++; renderItem(); } };
     $('btn-sheet').onclick = openSheet;
     $('sheet-close').onclick = closeSheet;
     $('btn-submit').onclick = submit;
@@ -419,5 +438,10 @@
   }
   document.addEventListener('DOMContentLoaded', initRavenPage);
   document.addEventListener('astro:page-load', initRavenPage);
+  // SPA 换页兜底：清掉计时器与自动前进排队，避免在非测验页抛错耗电
+  document.addEventListener('astro:before-swap', function () {
+    if (S.timerId) { clearInterval(S.timerId); S.timerId = null; }
+    cancelAutoNext();
+  });
 
 })();

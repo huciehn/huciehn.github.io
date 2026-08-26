@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tianyu Liufang · Essays</title>
+    <link>https://tianyuliufang.com/</link>
+    <atom:link href="https://tianyuliufang.com/en/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Essays and free psychology resources</description>
+    <language>en</language>
+    <item>
+      <title>Self-Introduction</title>
+      <link>https://tianyuliufang.com/en/posts/self-intro/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/en/posts/self-intro/</guid>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 GMT</pubDate>
+      <description>A long-overdue self-introduction</description>
+    </item>
+    <item>
+      <title>My View on Education</title>
+      <link>https://tianyuliufang.com/en/posts/my-view-on-education/</link>
+      <guid isPermaLink="true">https://tianyuliufang.com/en/posts/my-view-on-education/</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+      <description>The mental health education I believe in</description>
+    </item>
+  </channel>
+</rss>
