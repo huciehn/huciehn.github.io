@@ -17,6 +17,7 @@
     timerId: null,
     assetMap: {},             // id -> url（图像模式）
     assetCount: 0,
+    assetsReady: false,       // 题图探测完成标志
     seed: 20260824,
     finished: false
   };
@@ -80,6 +81,7 @@
       status.textContent = '正在探测题图……' + n + '/60';
     });
     S.assetMap = r.map; S.assetCount = r.found;
+    S.assetsReady = true;
     updateModeUI();
   }
 
@@ -97,8 +99,7 @@
       el.disabled = (el.value === 'image') && !imgOk;
     });
     var checked = document.querySelector('input[name=mode]:checked');
-    /* 未开始测验时按可用性保持勾选一致：探测完成前默认平行卷，完成后自动恢复图像卷；已开始则不改用户选择 */
-    if (S.items.length === 0 && (!checked || checked.disabled || checked.value !== (imgOk ? 'image' : 'gen'))) {
+    if ((!checked || checked.disabled)) {
       document.querySelector('input[name=mode][value=' + (imgOk ? 'image' : 'gen') + ']').checked = true;
     }
   }
@@ -144,6 +145,12 @@
   /* ---------- 开始测验 ---------- */
   function startTest() {
     S.mode = document.querySelector('input[name=mode]:checked').value;
+    /* 题图探测完成前（assetMap 为空）图像卷全部题图会 src=undefined 空白；拦截并提示等待，守护经典题图模式 */
+    if (S.mode === 'image' && !S.assetsReady) {
+      var st = $('asset-status');
+      if (st) st.textContent = '题图仍在加载中，请等待状态变为“已检测到 60/60 张题图”后再开始……';
+      return;
+    }
     S.ageKey = $('age-select').value;
     S.seed = $('seed-random').checked ? (Date.now() % 1000000007) : 20260824;
     buildItems();
