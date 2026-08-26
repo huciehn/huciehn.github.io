@@ -97,7 +97,8 @@
       el.disabled = (el.value === 'image') && !imgOk;
     });
     var checked = document.querySelector('input[name=mode]:checked');
-    if ((!checked || checked.disabled)) {
+    /* 未开始测验时按可用性保持勾选一致：探测完成前默认平行卷，完成后自动恢复图像卷；已开始则不改用户选择 */
+    if (S.items.length === 0 && (!checked || checked.disabled || checked.value !== (imgOk ? 'image' : 'gen'))) {
       document.querySelector('input[name=mode][value=' + (imgOk ? 'image' : 'gen') + ']').checked = true;
     }
   }
@@ -119,7 +120,8 @@
     catch (e) { return []; }
   }
   function saveHistory(list) {
-    localStorage.setItem('raven_history_v1', JSON.stringify(list.slice(-20)));
+    // 存储不可用（隐私模式/WebView）时静默跳过：只影响历史记录，不能中断交卷出报告
+    try { localStorage.setItem('raven_history_v1', JSON.stringify(list.slice(-20))); } catch (e) {}
   }
   function renderHistory() {
     var box = $('history-box'), list = loadHistory();
