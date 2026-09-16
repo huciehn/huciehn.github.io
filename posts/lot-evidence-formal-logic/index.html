@@ -17,18 +17,18 @@
       标题仿宋走系统字体栈（--font-display 里「FangSong」本地字优先，
       缺失时优雅落回 Noto Serif SC）。Google Fonts 无 FangSong 家族
       （请求会被静默丢弃），故不从 CDN 请求。
-    --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><!-- SPA 式页面转场：不支持的浏览器自动降级为普通导航 --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DcSP9LZ1.js"></script><link rel="stylesheet" href="/_astro/index.VifFYnCl.css">
-<style>.post-wrap[data-astro-cid-l6a6buid]{padding-block:4rem 2rem}.post-page[data-astro-cid-l6a6buid]{min-width:0}.post-head[data-astro-cid-l6a6buid]{text-align:center;margin-bottom:1rem}.post-cat[data-astro-cid-l6a6buid]{color:var(--celadon);font-size:.85rem;letter-spacing:.4em;text-indent:.4em;margin:0 0 1rem}.post-title[data-astro-cid-l6a6buid]{font-size:2.4rem;margin:0 0 1rem;letter-spacing:.08em}.post-date[data-astro-cid-l6a6buid]{color:var(--ink-soft);font-size:.9rem;margin:0}.post-date[data-astro-cid-l6a6buid] time[data-astro-cid-l6a6buid]{font-family:var(--font-latin);letter-spacing:.05em}.post-head[data-astro-cid-l6a6buid] .divider{margin:2rem auto 1rem}.post-foot[data-astro-cid-l6a6buid]{margin-top:4rem;padding-top:2rem;border-top:var(--hairline);text-align:center}.post-foot[data-astro-cid-l6a6buid] .post-nav[data-astro-cid-l6a6buid]{text-align:left;margin:0 0 2.5rem}.back-link[data-astro-cid-l6a6buid]{font-size:.95rem;letter-spacing:.2em;color:var(--celadon)}@media(max-width:1100px){.post-wrap[data-astro-cid-l6a6buid]{width:min(100% - 3rem,var(--max-prose));grid-template-columns:minmax(0,1fr)}}@media(max-width:640px){.post-title[data-astro-cid-l6a6buid]{font-size:1.8rem}}
-</style></head> <body> <!-- 生成式水墨山水背景 + 江南雨丝（persist，换页不重启） --> <canvas id="ink-bg" aria-hidden="true" data-astro-transition-persist="astro-bl2rsxt4-1"></canvas> <canvas id="fx-rain" aria-hidden="true" data-astro-transition-persist="astro-62bt2kxk-2"></canvas> <!-- 开卷动画：每会话首次到访首页时钤印展开，JS 控制 --> <div id="intro-overlay" aria-hidden="true"> <span class="intro-seal"><img class="seal" src="/seal.png" width="92" height="92" alt="天雨流芳之印" loading="eager" decoding="async" style="width:92px;height:92px;padding:0px" data-astro-cid-u7cnqnia> </span> <span class="intro-word">开卷</span> </div> <div id="scroll-progress" aria-hidden="true"></div> <header class="site-header" data-astro-cid-3ef6ksr2> <div class="container header-inner" data-astro-cid-3ef6ksr2> <a href="/" class="brand" data-astro-cid-3ef6ksr2> <img class="seal" src="/seal.png" width="44" height="44" alt="天雨流芳之印" loading="eager" decoding="async" style="width:44px;height:44px;padding:4px" data-astro-cid-u7cnqnia>  <span class="brand-name" data-astro-cid-3ef6ksr2> <img src="/xuxiaoao-h.png" alt="徐小嗷" width="691" height="240" data-astro-cid-3ef6ksr2> </span> </a> <nav class="main-nav" aria-label="主导航" data-astro-cid-3ef6ksr2> <a href="/posts/" class="nav-link" aria-current="page" data-astro-cid-3ef6ksr2> 随笔 </a><a href="/resources/" class="nav-link" data-astro-cid-3ef6ksr2> 资源 </a><a href="/about/" class="nav-link" data-astro-cid-3ef6ksr2> 关于 </a> <a href="/en/posts/" class="lang-switch" lang="en" data-astro-cid-3ef6ksr2> EN </a> </nav> <div class="header-actions" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn" data-search-open aria-label="搜索" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <circle cx="11" cy="11" r="7" data-astro-cid-3ef6ksr2></circle> <path d="m20 20-3.8-3.8" data-astro-cid-3ef6ksr2></path> </svg> <kbd data-astro-cid-3ef6ksr2>Ctrl K</kbd> </button> <button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-dark="夜航" data-label-light="昼行" aria-label="夜航"> <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <circle cx="12" cy="12" r="4.4"></circle> <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path> </svg> <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2Z"></path> </svg> </button> <button type="button" class="icon-btn menu-btn" data-menu-open aria-label="菜单" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M4 7h16M4 12h16M4 17h16" data-astro-cid-3ef6ksr2></path> </svg> </button> </div> </div> </header> <!-- 移动端抽屉 --> <div class="drawer-backdrop" aria-hidden="true" data-astro-cid-3ef6ksr2></div> <nav class="drawer" aria-label="移动端导航" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn drawer-close" data-menu-close aria-label="收起" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M6 6l12 12M18 6L6 18" data-astro-cid-3ef6ksr2></path> </svg> </button> <a href="/" data-astro-cid-3ef6ksr2>首页</a> <a href="/posts/" data-astro-cid-3ef6ksr2>随笔</a><a href="/resources/" data-astro-cid-3ef6ksr2>资源</a><a href="/about/" data-astro-cid-3ef6ksr2>关于</a> <a href="/en/posts/" lang="en" data-astro-cid-3ef6ksr2>EN</a> </nav>  <main>  <div class="post-wrap" data-astro-cid-l6a6buid> <article class="post-page" data-astro-cid-l6a6buid> <header class="post-head ink-in" data-astro-cid-l6a6buid> <p class="post-cat" data-astro-cid-l6a6buid>笔记</p> <h1 class="post-title" data-astro-cid-l6a6buid>Evidence from formal logical reasoning reveals that the language of thought is not natural language</h1> <p class="post-date" data-astro-cid-l6a6buid> 撰于 <time datetime="2026-08-03T00:00:00.000Z" data-astro-cid-l6a6buid>二〇二六年八月三日</time> </p> <p class="post-meta-line" data-astro-cid-l6a6buid> <span data-astro-cid-l6a6buid>共 13,045 字 · 约 33 分钟</span> </p>  <div class="divider" aria-hidden="true"> <svg viewBox="0 0 40 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="divider-cloud"> <path d="M8.5 22C4 22 1 19.5 1 16c0-2.8 1.8-5.2 4.4-6.1C6.2 7.6 9.2 5.5 12.7 5.5c2.2 0 4.2 1 5.5 2.6C19 6.2 21 5 23.3 5c3.5 0 6.5 2.3 7.4 5.5C33.3 10.2 36 12.7 36 16c0 3.5-3 6-6.5 6H8.5z" opacity=".72"></path> </svg> </div> </header> <div class="post-tools ink-in ink-in-d1" data-astro-cid-l6a6buid> <button type="button" class="tool-btn" data-vertical-toggle data-label-on="竖排" data-label-off="横排" aria-pressed="false" data-astro-cid-l6a6buid> 竖排 </button> </div> <div class="md-body ink-in ink-in-d1" data-copy-label="复制" data-copied-label="已复制" data-astro-cid-l6a6buid> <h2 id="形式逻辑推理的证据表明思维语言并非自然语言">形式逻辑推理的证据表明：思维语言并非自然语言</h2>
+    --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><!-- SPA 式页面转场：不支持的浏览器自动降级为普通导航 --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.DcSP9LZ1.js"></script><link rel="stylesheet" href="/_astro/index.Cb8ISGmV.css">
+<style>.post-wrap[data-astro-cid-l6a6buid]{padding-block:4rem 2rem}.post-page[data-astro-cid-l6a6buid]{min-width:0}.post-head[data-astro-cid-l6a6buid]{text-align:center;margin-bottom:1rem}.post-cat[data-astro-cid-l6a6buid]{color:var(--celadon);font-size:.85rem;letter-spacing:var(--ls-5);text-indent:var(--ls-5);margin:0 0 1rem}.post-title[data-astro-cid-l6a6buid]{font-size:2.4rem;margin:0 0 1rem;letter-spacing:var(--ls-2)}.post-date[data-astro-cid-l6a6buid]{color:var(--ink-soft);font-size:.9rem;margin:0}.post-date[data-astro-cid-l6a6buid] time[data-astro-cid-l6a6buid]{font-family:var(--font-latin);letter-spacing:var(--ls-1)}.post-head[data-astro-cid-l6a6buid] .divider{margin:2rem auto 1rem}.post-foot[data-astro-cid-l6a6buid]{margin-top:4rem;padding-top:2rem;border-top:var(--hairline);text-align:center}.post-foot[data-astro-cid-l6a6buid] .post-nav[data-astro-cid-l6a6buid]{text-align:left;margin:0 0 2.5rem}.back-link[data-astro-cid-l6a6buid]{font-size:.95rem;letter-spacing:var(--ls-4);color:var(--celadon)}@media(max-width:1100px){.post-wrap[data-astro-cid-l6a6buid]{width:min(100% - 3rem,var(--max-prose));grid-template-columns:minmax(0,1fr)}}@media(max-width:640px){.post-title[data-astro-cid-l6a6buid]{font-size:1.8rem}}
+</style></head> <body> <!-- 生成式水墨山水背景 + 江南雨丝（persist，换页不重启） --> <canvas id="ink-bg" aria-hidden="true" data-astro-transition-persist="astro-bl2rsxt4-1"></canvas> <canvas id="fx-rain" aria-hidden="true" data-astro-transition-persist="astro-62bt2kxk-2"></canvas> <!-- 开卷动画：每会话首次到访首页时钤印展开，JS 控制 --> <div id="intro-overlay" aria-hidden="true"> <span class="intro-seal"><img class="seal" src="/seal.png" width="92" height="92" alt="天雨流芳之印" loading="eager" decoding="async" style="width:92px;height:92px;padding:0px" data-astro-cid-u7cnqnia> </span> <span class="intro-word">开卷</span> </div> <div id="scroll-progress" aria-hidden="true"></div> <header class="site-header" data-astro-cid-3ef6ksr2> <div class="container header-inner" data-astro-cid-3ef6ksr2> <a href="/" class="brand" data-astro-cid-3ef6ksr2> <img class="seal" src="/seal.png" width="44" height="44" alt="天雨流芳之印" loading="eager" decoding="async" style="width:44px;height:44px;padding:4px" data-astro-cid-u7cnqnia>  <span class="brand-name" data-astro-cid-3ef6ksr2> <img src="/xuxiaoao-h.png" alt="徐小嗷" width="691" height="240" data-astro-cid-3ef6ksr2> </span> </a> <nav class="main-nav" aria-label="主导航" data-astro-cid-3ef6ksr2> <a href="/posts/" class="nav-link" aria-current="page" data-astro-cid-3ef6ksr2> 随笔 </a><a href="/resources/" class="nav-link" data-astro-cid-3ef6ksr2> 资源 </a><a href="/about/" class="nav-link" data-astro-cid-3ef6ksr2> 关于 </a> <a href="/en/posts/" class="lang-switch" lang="en" data-astro-cid-3ef6ksr2> EN </a> </nav> <div class="header-actions" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn" data-search-open aria-label="搜索" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <circle cx="11" cy="11" r="7" data-astro-cid-3ef6ksr2></circle> <path d="m20 20-3.8-3.8" data-astro-cid-3ef6ksr2></path> </svg> <kbd data-astro-cid-3ef6ksr2>Ctrl K</kbd> </button> <button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-dark="夜航" data-label-light="昼行" aria-label="夜航"> <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <circle cx="12" cy="12" r="4.4"></circle> <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path> </svg> <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"> <path d="M20 13.2A8.2 8.2 0 0 1 10.8 4 8.2 8.2 0 1 0 20 13.2Z"></path> </svg> </button> <button type="button" class="icon-btn menu-btn" data-menu-open aria-label="菜单" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M4 7h16M4 12h16M4 17h16" data-astro-cid-3ef6ksr2></path> </svg> </button> </div> </div> </header> <!-- 移动端抽屉 --> <div class="drawer-backdrop" aria-hidden="true" data-astro-cid-3ef6ksr2></div> <nav class="drawer" aria-label="移动端导航" data-astro-cid-3ef6ksr2> <button type="button" class="icon-btn drawer-close" data-menu-close aria-label="收起" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-3ef6ksr2> <path d="M6 6l12 12M18 6L6 18" data-astro-cid-3ef6ksr2></path> </svg> </button> <a href="/" data-astro-cid-3ef6ksr2>首页</a> <a href="/posts/" data-astro-cid-3ef6ksr2>随笔</a><a href="/resources/" data-astro-cid-3ef6ksr2>资源</a><a href="/about/" data-astro-cid-3ef6ksr2>关于</a> <a href="/en/posts/" lang="en" data-astro-cid-3ef6ksr2>EN</a> </nav>  <main>  <div class="post-wrap" data-astro-cid-l6a6buid> <article class="post-page" data-astro-cid-l6a6buid> <header class="post-head ink-in" data-astro-cid-l6a6buid> <p class="post-cat" data-astro-cid-l6a6buid>笔记</p> <h1 class="post-title" data-astro-cid-l6a6buid>Evidence from formal logical reasoning reveals that the language of thought is not natural language</h1> <p class="post-date" data-astro-cid-l6a6buid> 撰于 <time datetime="2026-08-03T00:00:00.000Z" data-astro-cid-l6a6buid>二〇二六年八月三日</time> </p> <p class="post-meta-line" data-astro-cid-l6a6buid> <span data-astro-cid-l6a6buid>共 13,045 字 · 约 33 分钟</span> </p>  <div class="divider" aria-hidden="true"> <svg viewBox="-14 -19 28 20" xmlns="http://www.w3.org/2000/svg" class="divider-lotus" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"> <path d="M0,0 C-5.8,-3.5 -7.8,-12 -5,-20 C-3.2,-25 -1.2,-27.5 0,-29 C1.2,-27.5 3.2,-25 5,-20 C7.8,-12 5.8,-3.5 0,0 Z" transform="rotate(-48)"></path><path d="M0,0 C-5.8,-3.5 -7.8,-12 -5,-20 C-3.2,-25 -1.2,-27.5 0,-29 C1.2,-27.5 3.2,-25 5,-20 C7.8,-12 5.8,-3.5 0,0 Z" transform="rotate(-24)"></path><path d="M0,0 C-5.8,-3.5 -7.8,-12 -5,-20 C-3.2,-25 -1.2,-27.5 0,-29 C1.2,-27.5 3.2,-25 5,-20 C7.8,-12 5.8,-3.5 0,0 Z" transform="rotate(0)"></path><path d="M0,0 C-5.8,-3.5 -7.8,-12 -5,-20 C-3.2,-25 -1.2,-27.5 0,-29 C1.2,-27.5 3.2,-25 5,-20 C7.8,-12 5.8,-3.5 0,0 Z" transform="rotate(24)"></path><path d="M0,0 C-5.8,-3.5 -7.8,-12 -5,-20 C-3.2,-25 -1.2,-27.5 0,-29 C1.2,-27.5 3.2,-25 5,-20 C7.8,-12 5.8,-3.5 0,0 Z" transform="rotate(48)"></path> </svg> </div> </header> <div class="post-tools ink-in ink-in-d1" data-astro-cid-l6a6buid> <button type="button" class="tool-btn" data-vertical-toggle data-label-on="竖排" data-label-off="横排" aria-pressed="false" data-astro-cid-l6a6buid> 竖排 </button> </div> <div class="md-body ink-in ink-in-d1" data-copy-label="复制" data-copied-label="已复制" data-astro-cid-l6a6buid> <h2 id="形式逻辑推理的证据表明思维语言并非自然语言">形式逻辑推理的证据表明：思维语言并非自然语言</h2>
 <p><strong>作者</strong>：Hope Keanᵃ’ᵇ’¹、Alexander Fungᵃ’ᵇ’²、Paris Jaggersᶜ’²、Jason Chenᵃ、Joshua S. Ruleᵃ’ᵈ、Yael Bennᵉ、Joshua B. Tenenbaumᵃ、Steven T. Piantadosiᵈ、Rosemary A. Varleyᶜ、Evelina Fedorenkoᵃ’ᵇ’¹</p>
 <p>为督促自己坚持阅读文献，本公众号会不定时分享优质文献，选题均围绕个人研究兴趣。欢迎大家在评论区留言交流观点、分享想法。</p>
 <p>（¹ 通讯作者：<a href="mailto:hopekean@mit.edu">hopekean@mit.edu</a>；<a href="mailto:evelina9@mit.edu">evelina9@mit.edu</a>。² A.F. 与 P.J. 对本研究贡献相同。作者单位信息见文末。）</p>
 <blockquote>
-<p>“本文原载于<em>Proceedings of the National Academy of Sciences of the United States of America</em>（PNAS），2026 年，第 123 卷，第 28 期，文章号 e2520095123。2025 年 7 月 25 日收稿，2026 年 5 月 9 日接受，2026 年 7 月 6 日在线发表。责任编辑：Michael S. Gazzaniga（加州大学圣塔芭芭拉分校）。本文遵循 CC BY-NC-ND 4.0 许可协议发布。</p>
+<p>本文原载于<em>Proceedings of the National Academy of Sciences of the United States of America</em>（PNAS），2026 年，第 123 卷，第 28 期，文章号 e2520095123。2025 年 7 月 25 日收稿，2026 年 5 月 9 日接受，2026 年 7 月 6 日在线发表。责任编辑：Michael S. Gazzaniga（加州大学圣塔芭芭拉分校）。本文遵循 CC BY-NC-ND 4.0 许可协议发布。</p>
 </blockquote>
 <h2 id="摘要">摘要</h2>
 <p>人类拥有强大的归纳与演绎逻辑思维能力：我们轻而易举地基于少数几个示例形成概括，并从已知前提出发得出结论。人类还拥有堪称动物界中最精妙的交流系统：自然语言使我们得以表达复杂而结构化的意义。因此，一些学者主张复杂思维与语言之间存在紧密联系，认为推理——包括逻辑推理——依赖于语言表征。本研究采用两种互补的路径，系统考察了逻辑推理与语言之间的关系。第一，我们使用无创性脑成像技术（功能性磁共振成像，fMRI），考察健康成年人在完成逻辑推理任务时的神经活动。第二，我们对语言脑区存在大面积病灶、并因此伴有严重语言障碍的个体，进行了逻辑能力的行为学评估。研究结果显示：语言脑网络在逻辑推理过程中并未被调动，重度失语症患者在逻辑任务上表现完好。进一步地，归纳推理招募的是广泛参与目标导向行为的领域一般性“多重需求网络”（multiple demand network），而演绎推理所动用的大脑区域则既不同于语言网络，也不同于多重需求网络。上述结果共同表明：在归纳与演绎逻辑推理中，语言表征既未被使用，也并非必需。</p>
-<p><strong>关键词</strong>：思维语言 | 逻辑推理 | 失语症 | fMRI | 认知神经科学；语言</p>
+<p><strong>关键词</strong>：思维语言、逻辑推理、失语症、fMRI、认知神经科学、语言</p>
 <h2 id="研究意义significance">研究意义（Significance）</h2>
 <p>究竟是哪些认知机制，使人类能够进行逻辑推理——判断一个结论能否从前提中推出？这些机制与把词语组装为结构化表征的机制是否相同？千百年来，学者们一直在争论：逻辑推理究竟与自然语言密不可分，还是依赖于一种独立于自然语言的“思维语言”（language of thought, LOT）。本研究结合健康成年人的 fMRI 实验与重度失语症个体的逻辑能力评估，发现支持语言加工与支持逻辑（归纳与演绎）推理的是彼此分离的神经系统。这些结果提示，至少在发育成熟的大脑中，语言加工并不构成逻辑推理的基础——这或许是因为逻辑性的思维语言具有截然不同的表征格式。</p>
 <h2 id="正文">正文</h2>
@@ -42,34 +42,91 @@
 <p>因此，语言与逻辑的关系——更具体地说，人类的抽象逻辑推理是否依赖语言表征——仍不清楚。为系统考察语言在人类逻辑推理中的作用，我们采用了双管齐下的研究路径。首先，我们在健康成年人中使用 fMRI，检验语言网络（38）是否对逻辑推理的需求产生反应（研究 1）。随后，我们对因左侧外侧裂周皮层大面积损伤而罹患重度失语症的个体进行了行为实验，检验语言能力是否为逻辑推理所必需（研究 2）。需要说明的是，本研究并不涉及语言在儿童期逻辑概念习得或推理能力学习中可能扮演的角色（我们将在“讨论”中简要提及这一点）。提前剧透我们的发现：没有任何证据表明抽象逻辑推理动用了语言资源。</p>
 <h2 id="结果">结果</h2>
 <p>在每项研究中，我们都考察了逻辑推理的两种典型形式：归纳推理与演绎推理。</p>
-<p>归纳推理范式（图 1，左）改编自 Rule 等人（95）的研究（相关范式见文献 96–100）。被试会看到一组输入数字列表与输出列表（例如 [5, 7] → [7, 5, 7]），并被要求推断支配输入到输出转换的规则。随后，被试可以在新的输入列表上检验自己的假设，如此往复，直至猜出正确规则。这些规则涉及数学运算（如 ƒ(l) = [x + 2 | x ∈ l]，即“将每个数字加 2”）、列表运算（如 ƒ(l) = [xᵢ | xᵢ ∈ l, ∀j &#x3C; i, xᵢ ≠ xⱼ]，即“只保留唯一、不重复的元素”）与结构运算（如 ƒ(l) = l[3:]^l[0:3]，即“将列表循环移位三个元素”）的组合，每条规则都可以写成一个简短的计算机程序。fMRI 版本还包含一个控制条件：被试被告知规则，并被要求将其应用于新的输入列表。</p>
+<p>归纳推理范式（图 1，左）改编自 Rule 等人（95）的研究（相关范式见文献 96–100）。被试会看到一组输入数字列表与输出列表（例如 [5, 7] → [7, 5, 7]），并被要求推断支配输入到输出转换的规则。随后，被试可以在新的输入列表上检验自己的假设，如此往复，直至猜出正确规则。这些规则涉及数学运算（如 <code>ƒ(l) = [x + 2 | x ∈ l]</code>，即“将每个数字加 2”）、列表运算（如 <code>ƒ(l) = [xᵢ | xᵢ ∈ l, ∀j &#x3C; i, xᵢ ≠ xⱼ]</code>，即“只保留唯一、不重复的元素”）与结构运算（如 <code>ƒ(l) = l[3:]^l[0:3]</code>，即“将列表循环移位三个元素”）的组合，每条规则都可以写成一个简短的计算机程序。fMRI 版本还包含一个控制条件：被试被告知规则，并被要求将其应用于新的输入列表。</p>
 <p>演绎推理方面，我们采用了两种范式：三段论推理与矩阵推理。第一种范式由 Coetzee 与 Monti（101）引入，此处仅用于研究的 fMRI 部分（图 1，中）。被试会看到由两个前提与一个结论构成的经典三段论（例如：i）如果 A 是 B，那么 A 也是 C。ii）A 不是 C。iii）因此，A 不是 B），并被要求判断结论的有效性。一半的三段论使用真实词语（如“如果积木是大的……”），另一半使用假词（如“如果 tep 是 ag……”）。尽管所有题目都需要演绎推理与语言加工的参与，但题目之间的关键差异在于演绎的难度。较易的题目称为<strong>肯定前件式</strong>（Modus Ponens），形式如下：“如果积木是大的，那么它不是黄色的。积木是大的。所以，积木不是黄色的。”（结论可由前提推出）；或“如果积木是大的，那么它不是黄色的。积木是大的。所以，积木是黄色的。”（结论不能由前提推出）。较难的题目称为<strong>否定后件式</strong>（Modus Tollens），形式如下：“如果积木是大的，那么它不是黄色的。积木是黄色的。所以，积木不是大的。”（结论可由前提推出）；或“如果积木是大的，那么它不是黄色的。积木不是黄色的。所以，球是大的。”（结论不能由前提推出）。</p>
 <p>三段论范式是逻辑推理研究中的经典范式（102–106），而否定后件式与肯定前件式题目之间的对比，巧妙地将演绎需求分离了出来。然而，该任务使用言语材料，因而不适用于失语症患者。因此，第二种范式我们选择了一种非言语任务，患者同样可以完成：矩阵推理（107）（此前用于 fMRI 的研究见文献 108）。被试会看到由四个几何图案组成的矩阵，并被要求找出异类项（图 1，右）。在控制条件中，任务结构相似，但几乎不需要逻辑推理，仅凭视觉模式识别即可完成。失语症患者完成的是一个类似的版本（109），不同的是几何图案矩阵中缺失了一个图案，被试需要从若干备选答案中选出能补全矩阵的那一项（图 1，右下小图）。此类范式被广泛用于评估不同人群的流体推理能力（110–119），同时涉及演绎与归纳推理（120、121）：归纳推理用于对潜在规则作出猜测，演绎推理用于评估逻辑约束并排除错误选项。因此，尽管该范式不如三段论推理任务纯粹，它依然非常适合检验语言对演绎推理是否为必需。</p>
 <p>如果语言表征是逻辑推理的基础，那么：a）语言脑区应对归纳需求、演绎需求或二者同时敏感（以 fMRI 测量）；并且 b）深度失语症患者应在这些任务上表现出障碍。</p>
 <p><img src="/posts/lot-evidence-formal-logic/01.png" alt="图1"></p>
 <p>图1 逻辑推理实验范式</p>
-<p>**图 1. 逻辑推理实验范式。**在归纳推理任务（左）中，被试会看到由 1–5 个个位数字组成的输入列表和由 0–5 个个位数字组成的输出列表，并被要求猜测将输入列表变换为输出列表的规则（详见“材料与方法”）。在 fMRI 版本中，第 8 道题之后，被试会通过示意图得知正确规则，并被要求将该规则应用于另外两个输入列表。在演绎三段论推理任务（中）中，被试会看到经典的三句式三段论，并被要求根据前两句（前提）判断第三句（结论）是否成立。试次在较难演绎（否定后件式，Modus Tollens）与较易演绎（肯定前件式，Modus Ponens）之间变化。在矩阵推理任务（右）中，被试会看到几何图形，并被要求找出其中的规律：fMRI 版本中需判断哪一幅图与其他图不符，行为版本中需找出缺失的图形（详见“材料与方法”）。</p>
+<p><strong>图 1. 逻辑推理实验范式</strong>。在归纳推理任务（左）中，被试会看到由 1–5 个个位数字组成的输入列表和由 0–5 个个位数字组成的输出列表，并被要求猜测将输入列表变换为输出列表的规则（详见“材料与方法”）。在 fMRI 版本中，第 8 道题之后，被试会通过示意图得知正确规则，并被要求将该规则应用于另外两个输入列表。在演绎三段论推理任务（中）中，被试会看到经典的三句式三段论，并被要求根据前两句（前提）判断第三句（结论）是否成立。试次在较难演绎（否定后件式，Modus Tollens）与较易演绎（肯定前件式，Modus Ponens）之间变化。在矩阵推理任务（右）中，被试会看到几何图形，并被要求找出其中的规律：fMRI 版本中需判断哪一幅图与其他图不符，行为版本中需找出缺失的图形（详见“材料与方法”）。</p>
 <blockquote>
-<p>“<strong>图注解读</strong>：图中三列分别对应三类任务——归纳推理、演绎（三段论）推理、矩阵推理（矩阵推理同时涉及归纳与演绎，故标注“Induction + Deduction”）。每列展示了该任务的实验条件（难题）与控制条件（易题）示例：归纳推理的关键条件是“规则归纳”（须自行发现变换规则），控制条件是“规则应用”（被告知规则后套用）；三段论推理以否定后件式（难）对照肯定前件式（易）；矩阵推理以需要关系推理的复杂图形（难）对照仅凭视觉模式识别即可完成的简单图形（易）。图中还标出了完成各任务的 fMRI 被试人数（如三段论任务 n=23）以及参加行为实验的失语症患者人数（n=2，含其病灶影像与手指计数示例照片）。</p>
+<p><strong>图注解读</strong>：图中三列分别对应三类任务——归纳推理、演绎（三段论）推理、矩阵推理（矩阵推理同时涉及归纳与演绎，故标注“Induction + Deduction”）。每列展示了该任务的实验条件（难题）与控制条件（易题）示例：归纳推理的关键条件是“规则归纳”（须自行发现变换规则），控制条件是“规则应用”（被告知规则后套用）；三段论推理以否定后件式（难）对照肯定前件式（易）；矩阵推理以需要关系推理的复杂图形（难）对照仅凭视觉模式识别即可完成的简单图形（易）。图中还标出了完成各任务的 fMRI 被试人数（如三段论任务 n=23）以及参加行为实验的失语症患者人数（n=2，含其病灶影像与手指计数示例照片）。</p>
 </blockquote>
 <h3 id="语言网络在归纳演绎及矩阵推理中均未被激活">语言网络在归纳、演绎及矩阵推理中均未被激活</h3>
 <p>语言加工脑区对归纳、演绎（三段论）与矩阵推理对比几乎或完全没有反应。与基于大量既往研究的预期一致（综述见文献 38），这些脑区对语言加工表现出稳健的反应：在独立数据中估计的“句子 > 假词列表”条件对比中，句子条件诱发了显著更强的反应（网络层面 P &#x3C; 0.001；图 2B 与表 1）。需要说明的是，尽管此处使用特定的定位任务对比来界定语言脑区，该对比在不同呈现模态、语言、刺激与任务间都具有高度的可泛化性（如文献 48、122–124），而且这一网络也可以不借助对比、仅通过功能连接模式来界定（如文献 125–127）。此外，这些语言反应性脑区已被证明在理解与产生、以及受控与自然化范式中，都对语言加工需求稳健敏感［综述见文献（38）］；这种在多样语言任务中的普遍参与，与“损伤这些脑区会导致语言障碍”的事实相吻合（60、128）。</p>
 <p>关键在于，语言脑区对各逻辑对比几乎或完全不敏感。归纳对比确实在网络层面诱发了可靠反应（P &#x3C; 0.05），但效应很小：语言对比的强度是其四倍以上，且关键的归纳条件所诱发的反应，仅相当于甚至低于语言任务的控制条件（朗读假词）水平（SI 附录，图 S1B）。对其余任务而言，演绎（三段论）对比与矩阵推理对比均未在语言脑区诱发显著反应（网络层面 ps > 0.1；图 2A、2B 及表 1；五个语言脑区单独考察时结果相似，证据见 SI 附录图 S1A 与表 S1）——尽管这两个任务在正确率与反应时上都表现出显著的行为难度效应（SI 附录，图 S4）。在三段论任务中，相对于低级（注视点）基线，肯定前件式与否定后件式条件均诱发了较强反应，其强度与语言定位任务中句子条件的反应相当——后者使用长度相近、但不含逻辑内容的句子（SI 附录，图 S1B）。这一结果在预期之中，因为三段论的加工必然涉及词汇与句法加工。“对演绎推理难度不敏感”这一关键结果，在真词与假词条件下均成立（SI 附录，图 S5）。有趣的是，在语言脑区，使用真词的条件并未比使用假词的条件诱发更强的反应。假词条件（“如果 tep 是 ag……”）类似于所谓的“Jabberwocky 句”（131），既往 fMRI 研究表明此类句子在语言脑区诱发的反应低于真实句子（如文献 37、122、132、133）。我们推测，该效应在本实验中未出现，是因为词义与任务无关，被试因此以相似的方式处理真词与假词：对句子进行变量化与句法分析，提取基本的关系结构，再将其“递交”给支持此类推理的脑系统（见“逻辑推理在语言网络之外诱发强烈反应”一节）。</p>
-<h2 id="表-1-语言网络对语言对比与逻辑推理对比的反应">表 1. 语言网络对语言对比与逻辑推理对比的反应</h2>
-<p>| 预测变量 | 估计值 | P 值 |</p>
-<p>| --- | --- | --- |</p>
-<p>| 语言任务 |  |  |</p>
-<p>| 截距（假词） | 0.7407 | 0.0666 |</p>
-<p>| 关键效应（句子） | 1.5518 | &#x3C;0.0001 |</p>
-<p>| 归纳推理任务 |  |  |</p>
-<p>| 截距（规则应用） | 0.1408 | 0.7414 |</p>
-<p>| 关键效应（规则归纳） | 0.2601 | 0.0224 |</p>
-<p>| 演绎（三段论）推理任务 |  |  |</p>
-<p>| 截距（易三段论 / 肯定前件式） | 1.9361 | 0.0065 |</p>
-<p>| 关键效应（难三段论 / 否定后件式） | −0.0444 | 0.7102 |</p>
-<p>| 矩阵推理任务 |  |  |</p>
-<p>| 截距（易图形） | −0.2234 | 0.3527 |</p>
-<p>| 关键效应（难图形） | 0.1533 | 0.1185 |</p>
+<p><strong>表 1. 语言网络对语言对比与逻辑推理对比的反应</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>预测变量</th><th>估计值</th><th>P 值</th></tr></thead><tbody><tr><td>语言任务</td><td></td><td></td></tr><tr><td>截距（假词）</td><td>0.7407</td><td>0.0666</td></tr><tr><td>关键效应（句子）</td><td>1.5518</td><td>&#x3C;0.0001</td></tr><tr><td>归纳推理任务</td><td></td><td></td></tr><tr><td>截距（规则应用）</td><td>0.1408</td><td>0.7414</td></tr><tr><td>关键效应（规则归纳）</td><td>0.2601</td><td>0.0224</td></tr><tr><td>演绎（三段论）推理任务</td><td></td><td></td></tr><tr><td>截距（易三段论 / 肯定前件式）</td><td>1.9361</td><td>0.0065</td></tr><tr><td>关键效应（难三段论 / 否定后件式）</td><td>−0.0444</td><td>0.7102</td></tr><tr><td>矩阵推理任务</td><td></td><td></td></tr><tr><td>截距（易图形）</td><td>−0.2234</td><td>0.3527</td></tr><tr><td>关键效应（难图形）</td><td>0.1533</td><td>0.1185</td></tr></tbody></table>
 <p>注：表中为线性混合效应模型（见“材料与方法”）在网络层面的结果（按各功能兴趣区 fROI 分解的结果见 SI 附录表 S1）。</p>
 <h3 id="深度失语症患者依然能够进行逻辑推理">深度失语症患者依然能够进行逻辑推理</h3>
 <p>两名深度失语症患者 S.A. 与 G.S. 保留了逻辑推理能力。两人的左侧外侧裂周皮层均遭受大面积损伤（图 2C），并因此表现出严重的语言障碍（图 2D 及 SI 附录表 S3）。尤为关键的是——针对“语言句法结构中介逻辑推理”这一假说——两名患者在理解与产出上都存在严重的语法障碍，在多项句法评估中成绩处于或接近随机水平。例如，在理解可逆句（如“潜水员溅了海豚一身水”）时指派题元角色，两人均有明显障碍。然而，尽管失语症如此严重，两名患者在归纳与矩阵推理任务上都表现出与常人无异的成绩。在归纳推理任务（图 1，左）中，他们解出了呈现给他们的绝大多数规则（S.A.：19/25；G.S.：39/40）。这一成绩与对照组常模样本相当；两名患者与对照组均无显著差异（Crawford–Howell 单病例检验 ps > 0.499）。同样，在矩阵推理任务中，两名患者都解出了绝大多数题目（分别为 25/30 与 26/30），按照该任务可用的同龄常模数据［WASI-II；（109）］，分别高出均值 +2.3 与 +1.8 个标准差（这些原始分数对应 T 分数 73 与 68；常模 T = 50，SD = 10）。</p>
@@ -77,7 +134,7 @@
 <p>图2 语言网络不支持逻辑推理</p>
 <p><strong>图 2. 语言网络不支持逻辑推理。</strong>（A）两名示例被试个体中，语言对比（第 1 行，黄色）与三种逻辑推理对比（第 2–4 行，紫色与绿色）的激活图。（B）语言网络（在每名被试中个体化界定；见“材料与方法”）对四种对比的反应，以 BOLD 信号变化百分比表示：语言对比（句子 > 假词；在留出的独立数据中估计；灰色）、归纳对比（规则归纳 > 规则应用；品红色）、演绎对比（难三段论 > 易三段论；绿色）、矩阵对比（难图形 > 易图形；青色）。柱状图显示跨网络平均值，误差线为按被试计算的均值标准误（SEM）；浅色圆点为个体被试的反应；5 个语言功能兴趣区（fROI：IFGorb、IFG、MFG、AntTemp、PostTemp）各自的均值以水平虚线表示。（C）两名重度失语症患者（S.A. 与 G.S.）的解剖扫描图像、患者简要信息，以及语言网络概率图谱（引自文献 129）在 G.S. 的 MRI 图像上的投影。（D）失语症患者以及——在关键任务上——对照被试的行为表现。第一列为两名患者在语言评估任务［口语与书面句子理解；（130）］上的表现（S.A.：浅灰柱；G.S.：深灰柱），两人均处于或低于随机水平；下行为示例题目（患者语言评估的其他细节见“材料与方法”）。第二、三列为归纳与矩阵推理任务的表现（S.A.：浅灰点；G.S.：深灰点）。归纳任务的对照数据以粉色柱表示；下行为 G.S. 手绘的两个规则表征示例，分别演示“将数字倒序”规则（上）与“在数字后插入序号”规则（下）。矩阵推理任务的对照数据以同龄常模分布表示；下行为示例题目。</p>
 <blockquote>
-<p>“<strong>图注解读</strong>：本图是全文枢纽，从两个互补角度给出证据。上半部分（A、B）面向健康人：A 显示语言任务稳定激活语言网络（黄色），而归纳、演绎、矩阵三类逻辑任务几乎不激活该网络；B 的定量结果更直观——语言对比的 BOLD 信号变化接近 2%，三个逻辑对比的反应则贴近 0。下半部分（C、D）面向失语症患者：C 显示 S.A. 与 G.S. 的左半球语言区存在大面积病灶，且恰好覆盖语言网络；D 显示两人的语法理解仅处于随机水平（红叉），归纳与矩阵推理却达到甚至高于同龄人水平（绿勾）。脑成像与神经心理学证据相互印证：语言网络对逻辑推理既不被使用，也非必需。</p>
+<p><strong>图注解读</strong>：本图是全文枢纽，从两个互补角度给出证据。上半部分（A、B）面向健康人：A 显示语言任务稳定激活语言网络（黄色），而归纳、演绎、矩阵三类逻辑任务几乎不激活该网络；B 的定量结果更直观——语言对比的 BOLD 信号变化接近 2%，三个逻辑对比的反应则贴近 0。下半部分（C、D）面向失语症患者：C 显示 S.A. 与 G.S. 的左半球语言区存在大面积病灶，且恰好覆盖语言网络；D 显示两人的语法理解仅处于随机水平（红叉），归纳与矩阵推理却达到甚至高于同龄人水平（绿勾）。脑成像与神经心理学证据相互印证：语言网络对逻辑推理既不被使用，也非必需。</p>
 </blockquote>
 <h3 id="逻辑推理在语言网络之外诱发强烈反应">逻辑推理在语言网络之外诱发强烈反应</h3>
 <p>既然我们范式中的逻辑推理需求并未激活语言网络，我们希望确认它们确实在大脑某处诱发了反应。我们首先考察了一个合理的候选系统——<strong>多重需求网络</strong>（Multiple Demand network, MD 网络）（51、134、135）。该网络由一组双侧额叶与顶叶脑区构成，在多种高认知负荷任务中表现出强活动，例如标准的执行功能任务（134、136–139）。MD 网络的损伤与流体智力下降相关（140–142）。此外，与本文最相关的是，某些形式的推理会招募 MD 网络，包括数学推理（40、41、143）以及理解计算机代码所需的推理（42、43、144）。复现了大量既往研究的结果［如文献 143、145］，MD 网络脑区对空间工作记忆任务表现出稳健反应，且在独立数据中估计的高负荷条件下反应更强（网络层面 P &#x3C; 0.001；SI 附录图 S2 与表 S2）。归纳推理任务在整个 MD 网络中诱发了稳健反应，且规则归纳条件较控制条件（规则应用）反应更强（网络层面 P &#x3C; 0.001；SI 附录图 S2 与表 S2）。矩阵推理任务亦如此（网络层面 P &#x3C; 0.001；SI 附录图 S2 与表 S2）。然而，演绎三段论推理任务并未激活 MD 网络（网络层面 P > 0.48）。这一发现与 Coetzee 与 Monti（2018）的结果一致：他们报告了对演绎推理敏感的脑区与对一般任务难度敏感的脑区之间的分离，后者正是 MD 网络的标志性特征（另见文献 57、146、147）。全脑检索发现了若干额叶与顶叶脑区，它们在独立数据中估计的否定后件式（Modus Tollens）条件下，较肯定前件式（Modus Ponens）条件反应更强（整组脑区 P &#x3C; 0.001；SI 附录图 S2；关于这些脑区的详细考察见文献 148）。</p>
@@ -100,25 +157,25 @@
 <h3 id="推理的模块性">推理的模块性</h3>
 <p>除了语言与逻辑的分离，本研究还凸显了另一事实：不同种类的推理彼此之间也存在分离。一些推理形式已被证明是领域特异性的，包括社会推理（238–241）与直觉物理推理（242–245）。这两个系统都不同于多重需求（MD）网络——后者参与多样的目标导向行为和某些形式的抽象推理（51、139）——也不同于默认网络（Default network）——后者参与情景式的自我投射与情境模型构建（246–249），其中或许使用空间表征（250）。本研究表明：归纳推理与矩阵推理，与算术推理相似，强烈激活 MD 网络；而三段论演绎推理则不然，它招募的是另一组不同的脑区，与部分既往研究一致［（57、101、146、147）；关于这些脑区的系统考察见文献 148］。这些不同形式的推理为何彼此分离？是因为问题各自不同的内容/结构？还是因为这些问题所要求的心理操作存在差异？鉴于大脑中记忆与计算的深度整合（讨论见文献 251、252），这两个因素可能都对观察到的分离有所贡献。</p>
 <h3 id="局限性与开放问题">局限性与开放问题</h3>
-<p>本研究至少存在两方面局限。（#1）失语症部分仅纳入两名被试。样本如此之小，是由“深度语言障碍”这一纳入标准决定的——此类病例十分罕见（253）。在失语程度较轻的患者中发现完好的逻辑能力，信息量会低得多，因为总有可能患者是借助语言网络的残余部分进行推理的。来自重度语言障碍个体的完好认知能力证据，即便只来自寥寥数名被试，也弥足珍贵——毕竟，认知神经科学领域一些最深刻的洞见正是得自个案研究（254–257）。（#2）这些发现还应推广到更多种类的逻辑推理任务上，包括情境化范式（258–261），以及纯演绎任务的非言语版本。</p>
+<p>本研究至少存在两方面局限。（1）失语症部分仅纳入两名被试。样本如此之小，是由“深度语言障碍”这一纳入标准决定的——此类病例十分罕见（253）。在失语程度较轻的患者中发现完好的逻辑能力，信息量会低得多，因为总有可能患者是借助语言网络的残余部分进行推理的。来自重度语言障碍个体的完好认知能力证据，即便只来自寥寥数名被试，也弥足珍贵——毕竟，认知神经科学领域一些最深刻的洞见正是得自个案研究（254–257）。（2）这些发现还应推广到更多种类的逻辑推理任务上，包括情境化范式（258–261），以及纯演绎任务的非言语版本。</p>
 <p>许多问题依然悬而未决。例如：语言与逻辑的分离在幼儿期就已存在，还是随发展逐渐浮现？接触语言是否为学会逻辑推理所必需？语言与逻辑之间、以及不同类型推理之间的分离，究竟是这些认知任务的计算需求所决定的必然，抑或仅仅是生物演化的偶然？——这最后一个问题，如今已可在神经网络模型中加以检验（262–266）。</p>
 <h3 id="结论">结论</h3>
 <p>我们的研究结果提供了反对“自然语言是抽象逻辑推理之媒介”这一假说的证据，并提示此类推理由一种不同的表征格式所支撑。</p>
 <h2 id="材料与方法">材料与方法</h2>
-<p>**研究 1（fMRI）被试。**29 名成年人（15 名女性；平均年龄 = 27.3 岁，SD = 12.9 岁）来自麻省理工学院（MIT）及马萨诸塞州波士顿周边社区，有偿参加实验。所有被试均为英语母语者，听力与视力正常，无语言障碍史，且语言网络呈典型的左偏侧化（由语言定位任务确定）。所有被试均按照 MIT 人类被试实验委员会的要求签署了书面知情同意书（方案编号#2010000243）。所有被试均完成了语言定位任务与多重需求（MD）定位任务；29 名被试中的不同子集完成了各逻辑任务，每项任务至少有 17 名被试（17 人完成归纳与矩阵推理任务；23 人完成三段论推理任务）。</p>
-<p>**研究 2（行为）被试。**两名深度失语症男性患者参加实验（S.A.：78 岁；G.S.：50 岁）。两人均存在大范围病灶，左下额叶与左颞叶脑区显著受损，并被判定为重度语法缺失（SI 附录表 S3）。两人均为英语母语者，无视觉障碍，病前均为右利手。另纳入 40 名年龄匹配的神经典型被试作为对照（详见 SI 附录“材料与方法”）。伦理批准由伦敦大学学院（UCL）语言与认知系伦理委员会授予（LC/2023/05）。所有被试均在参加研究前签署了知情同意书。</p>
-<p>**归纳推理任务（fMRI、行为）。**被试会看到由 1–5 个个位数字组成的输入列表和由 0–5 个个位数字组成的输出列表，并被要求猜测将输入列表变换为输出列表的规则。随后，被试看到另一个输入列表，并被要求键入输出列表。他们会被告知自己关于潜在规则的猜测是否正确，接着看到另一个输入列表。在 fMRI 版本中，每个试次（对应一条规则）包含 8 道题。在最后一道题之后，被试会通过示意图（图 1，左）得知正确规则，并被要求将该规则应用于另外两个输入列表。我们将正确规则揭晓之前的 8 道题定义为归纳阶段，将正确规则揭晓之后的 2 道题定义为应用阶段。“规则归纳 > 规则应用”对比所针对的，是超出规则执行与反应录入所需的、与假设生成和规则发现相关的神经过程。每名被试完成 40 条规则。本任务及其他任务的全部材料均可在 OSF 获取（<a href="https://osf.io/jm9rd%EF%BC%89%EF%BC%9B%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%A1%E6%97%B6%E7%BB%86%E8%8A%82%E8%A7%81">https://osf.io/jm9rd）；更多的程序与计时细节见</a> SI 附录“材料与方法”。</p>
+<p><strong>研究 1（fMRI）被试</strong>。29 名成年人（15 名女性；平均年龄 = 27.3 岁，SD = 12.9 岁）来自麻省理工学院（MIT）及马萨诸塞州波士顿周边社区，有偿参加实验。所有被试均为英语母语者，听力与视力正常，无语言障碍史，且语言网络呈典型的左偏侧化（由语言定位任务确定）。所有被试均按照 MIT 人类被试实验委员会的要求签署了书面知情同意书（方案编号#2010000243）。所有被试均完成了语言定位任务与多重需求（MD）定位任务；29 名被试中的不同子集完成了各逻辑任务，每项任务至少有 17 名被试（17 人完成归纳与矩阵推理任务；23 人完成三段论推理任务）。</p>
+<p><strong>研究 2（行为）被试</strong>。两名深度失语症男性患者参加实验（S.A.：78 岁；G.S.：50 岁）。两人均存在大范围病灶，左下额叶与左颞叶脑区显著受损，并被判定为重度语法缺失（SI 附录表 S3）。两人均为英语母语者，无视觉障碍，病前均为右利手。另纳入 40 名年龄匹配的神经典型被试作为对照（详见 SI 附录“材料与方法”）。伦理批准由伦敦大学学院（UCL）语言与认知系伦理委员会授予（LC/2023/05）。所有被试均在参加研究前签署了知情同意书。</p>
+<p><strong>归纳推理任务（fMRI、行为）</strong>。被试会看到由 1–5 个个位数字组成的输入列表和由 0–5 个个位数字组成的输出列表，并被要求猜测将输入列表变换为输出列表的规则。随后，被试看到另一个输入列表，并被要求键入输出列表。他们会被告知自己关于潜在规则的猜测是否正确，接着看到另一个输入列表。在 fMRI 版本中，每个试次（对应一条规则）包含 8 道题。在最后一道题之后，被试会通过示意图（图 1，左）得知正确规则，并被要求将该规则应用于另外两个输入列表。我们将正确规则揭晓之前的 8 道题定义为归纳阶段，将正确规则揭晓之后的 2 道题定义为应用阶段。“规则归纳 > 规则应用”对比所针对的，是超出规则执行与反应录入所需的、与假设生成和规则发现相关的神经过程。每名被试完成 40 条规则。本任务及其他任务的全部材料均可在 OSF 获取（<a href="https://osf.io/jm9rd%EF%BC%89%EF%BC%9B%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%A1%E6%97%B6%E7%BB%86%E8%8A%82%E8%A7%81">https://osf.io/jm9rd）；更多的程序与计时细节见</a> SI 附录“材料与方法”。</p>
 <p>在任务的行为版本中，题目以纸质形式呈现，被试书面作答。同样使用 40 条规则，不同之处在于：为使每条规则包含 14 道题（输入—输出对），增补了少量题目；并根据 fMRI 被试反馈（他们认为某些输入—输出对令人困惑）替换了少量题目。刺激材料被分为四组，每组 10 条规则。G.S. 分若干次完成了全部 40 条规则（每次约 6 条）；S.A. 同样分次完成，但只完成了第 1–3 组（每次约 4 条）；每次完成规则数量的差异，源于与年龄相关的健康状况，且实验必须在常规随访的其他活动间隙完成。对照被试每人于单次测试中完成一组 10 条规则，中途短暂休息，每组由 10 名被试完成。无论患者还是对照，当被试连续答对 4 道题后，即停止该规则的测试。时间允许时，研究者有时会请失语症患者以图示方式画出他们猜到的规则（示例见图 2）。</p>
-<p>**演绎（三段论）推理任务（fMRI）。**被试会看到经典三段论，并被要求根据前两句（前提）判断第三句（结论）的有效性。每个试次对应一个三段论；试次在难度上区分为难三段论（否定后件式）与易三段论（肯定前件式），在材料上区分真词与假词。“难三段论 > 易三段论”对比所针对的，是与逻辑演绎推理的复杂性相关的认知过程。每名被试在每个条件下完成 16 至 32 个试次。</p>
-<p>**矩阵推理任务（fMRI、行为）。**被试会看到一组几何图形，并被要求找出异类项（fMRI 版本）或缺失图形（行为版本）。在 fMRI 版本中，被试看到四幅图形，需判断哪一幅与其他图形不符。实验采用区组设计：难区组的试次使用 Cattell（107）的刺激材料，易区组的试次使用 Woolgar 等人（143）改编该任务用于 fMRI 时创建的较简单题目（例如三幅相同的简单图形加一幅不同图形）；较易条件仅凭视觉模式识别即可解决。“难图形 > 易图形”对比所针对的，是与关系推理、假设生成和演绎推理相关的认知过程。</p>
+<p><strong>演绎（三段论）推理任务（fMRI）</strong>。被试会看到经典三段论，并被要求根据前两句（前提）判断第三句（结论）的有效性。每个试次对应一个三段论；试次在难度上区分为难三段论（否定后件式）与易三段论（肯定前件式），在材料上区分真词与假词。“难三段论 > 易三段论”对比所针对的，是与逻辑演绎推理的复杂性相关的认知过程。每名被试在每个条件下完成 16 至 32 个试次。</p>
+<p><strong>矩阵推理任务（fMRI、行为）</strong>。被试会看到一组几何图形，并被要求找出异类项（fMRI 版本）或缺失图形（行为版本）。在 fMRI 版本中，被试看到四幅图形，需判断哪一幅与其他图形不符。实验采用区组设计：难区组的试次使用 Cattell（107）的刺激材料，易区组的试次使用 Woolgar 等人（143）改编该任务用于 fMRI 时创建的较简单题目（例如三幅相同的简单图形加一幅不同图形）；较易条件仅凭视觉模式识别即可解决。“难图形 > 易图形”对比所针对的，是与关系推理、假设生成和演绎推理相关的认知过程。</p>
 <p>行为版本采用韦氏简明智力量表第二版（WASI-II）的矩阵推理分测验。被试会看到一组缺失了一幅图形的图阵，并被要求从五个选项中选出能补全图案的缺失图形。测验以纸质形式施测，遵循 WASI-II 标准施测程序。被试答错 3 道题后停止测验。</p>
-<p><strong>关键分析——fMRI。</strong>（fMRI 数据采集、预处理与建模的细节见 SI 附录“材料与方法”。）为检验语言脑区在逻辑推理任务中是否产生反应，我们使用了一个经过广泛验证的定位任务（122），在个体被试中以功能方式界定兴趣区。被试被要求认真阅读句子与假词序列（详见 SI 附录“材料与方法”）。语言 fROI（及下述控制 fROI）中的反应使用线性混合效应模型进行统计评估。对每个对比，我们分别在网络层面与单个 fROI 层面拟合模型。</p>
-<p>网络层面模型：BOLD ~ 条件 + (1 | 被试) + (1 | fROI)。 单个 fROI 层面模型：BOLD ~ 条件 + (1 | 被试)。</p>
+<p><strong>关键分析——fMRI</strong>。（fMRI 数据采集、预处理与建模的细节见 SI 附录“材料与方法”。）为检验语言脑区在逻辑推理任务中是否产生反应，我们使用了一个经过广泛验证的定位任务（122），在个体被试中以功能方式界定兴趣区。被试被要求认真阅读句子与假词序列（详见 SI 附录“材料与方法”）。语言 fROI（及下述控制 fROI）中的反应使用线性混合效应模型进行统计评估。对每个对比，我们分别在网络层面与单个 fROI 层面拟合模型。</p>
+<p>网络层面模型：<code>BOLD ~ 条件 + (1 | 被试) + (1 | fROI)</code>。单个 fROI 层面模型：<code>BOLD ~ 条件 + (1 | 被试)</code>。</p>
 <p>为确保我们的逻辑推理任务在大脑某处诱发强烈反应，我们进行了两项分析。第一，使用空间工作记忆任务（在 3×4 网格中追踪 8 个对 4 个方块）作为多重需求网络的定位任务（如文献 145）（详见 SI 附录“材料与方法”）。第二，由于演绎三段论推理任务未在 MD 网络中诱发反应，我们额外进行了全脑检索，寻找对“难三段论 > 易三段论”对比产生反应的脑区（见 SI 附录“材料与方法”）。（被试在关键 fMRI 任务中的行为表现见 SI 附录图 S4。）</p>
-<p>**关键分析——行为。**对归纳推理任务，我们使用 Crawford 与 Howell（267）检验，将每名患者的成绩与对照组进行比较。矩阵推理 WASI-II 数据按照官方手册提供的标准指南计分。</p>
-<p>**数据、材料与软件可用性。**脑数据及相关材料数据已存放入开放科学框架（OSF）（<a href="https://osf.io/jm9rd%EF%BC%89%EF%BC%88268%EF%BC%89%E3%80%82%E5%85%B6%E4%BD%99%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%9D%87%E5%8C%85%E5%90%AB%E4%BA%8E%E6%AD%A3%E6%96%87%E5%92%8C/%E6%88%96">https://osf.io/jm9rd）（268）。其余所有数据均包含于正文和/或</a> SI 附录中。</p>
+<p><strong>关键分析——行为</strong>。对归纳推理任务，我们使用 Crawford 与 Howell（267）检验，将每名患者的成绩与对照组进行比较。矩阵推理 WASI-II 数据按照官方手册提供的标准指南计分。</p>
+<p><strong>数据、材料与软件可用性</strong>。脑数据及相关材料数据已存放入开放科学框架（OSF）（<a href="https://osf.io/jm9rd%EF%BC%89%EF%BC%88268%EF%BC%89%E3%80%82%E5%85%B6%E4%BD%99%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%9D%87%E5%8C%85%E5%90%AB%E4%BA%8E%E6%AD%A3%E6%96%87%E5%92%8C/%E6%88%96">https://osf.io/jm9rd）（268）。其余所有数据均包含于正文和/或</a> SI 附录中。</p>
 <h2 id="致谢">致谢</h2>
-<p>我们感谢 MIT 麦戈文脑研究所 Athinoula A. Martinos 影像中心，包括技术团队的 Steve Shannon 与 Atsushi Takahashi。我们同时感谢 Anya Ivanova、Colton Casto、Ben Lipkin、Chiebuka Ohams 与 Ted Gibson 对稿件提出的宝贵意见。H.K. 获麦戈文之友（Friends of McGovern）研究生奖学金及 K. Lisa Yang 整合计算神经科学（ICoN）中心研究生奖学金资助。J.B.T. 获美国空军科学研究办公室、海军研究办公室“人工智能科学”项目及 Schmidt Sciences AI2050 奖学金的研究经费资助。J.S.R. 与 S.T.P. 获正式与非正式学习环境研究部（EDU/DRL）基金 2201843 资助。R.A.V. 获 Leverhulme 研究奖学金（RF-2023-690\10）资助。E.F. 及本研究获麦戈文脑研究所、脑与认知科学系、MIT Siegel 家族智能探索计划、Simons 基金会资助 MIT Simons 社会脑中心的基金，以及 DARPA AIQ 项目通过 DARPA CMO 合同编号 HR00112520025 的研究经费部分资助。最后，我们要特别感谢 S.A.：三十多年来，他对本研究乃至整个神经科学的贡献，以无法估量的方式深化了我们对语言与心智的理解。</p>
+<p>我们感谢 MIT 麦戈文脑研究所 Athinoula A. Martinos 影像中心，包括技术团队的 Steve Shannon 与 Atsushi Takahashi。我们同时感谢 Anya Ivanova、Colton Casto、Ben Lipkin、Chiebuka Ohams 与 Ted Gibson 对稿件提出的宝贵意见。H.K. 获麦戈文之友（Friends of McGovern）研究生奖学金及 K. Lisa Yang 整合计算神经科学（ICoN）中心研究生奖学金资助。J.B.T. 获美国空军科学研究办公室、海军研究办公室“人工智能科学”项目及 Schmidt Sciences AI2050 奖学金的研究经费资助。J.S.R. 与 S.T.P. 获正式与非正式学习环境研究部（EDU/DRL）基金 2201843 资助。R.A.V. 获 Leverhulme 研究奖学金（RF-2023-690/10）资助。E.F. 及本研究获麦戈文脑研究所、脑与认知科学系、MIT Siegel 家族智能探索计划、Simons 基金会资助 MIT Simons 社会脑中心的基金，以及 DARPA AIQ 项目通过 DARPA CMO 合同编号 HR00112520025 的研究经费部分资助。最后，我们要特别感谢 S.A.：三十多年来，他对本研究乃至整个神经科学的贡献，以无法估量的方式深化了我们对语言与心智的理解。</p>
 <p><strong>作者单位</strong>：ᵃ 麻省理工学院脑与认知科学系（美国马萨诸塞州剑桥市，MA 02139）；ᵇ 麻省理工学院麦戈文脑研究所（美国马萨诸塞州剑桥市，MA 02139）；ᶜ 伦敦大学学院心理与语言科学系（英国伦敦，WC1N 1PF）；ᵈ 加州大学伯克利分校心理学系（美国加州伯克利，CA 94720）；ᵉ 曼彻斯特城市大学心理学院（英国曼彻斯特，M15 6BX）。</p>
 <p><strong>作者贡献</strong>：H.K.、J.S.R.、J.B.T.、S.T.P.、R.A.V. 与 E.F. 设计研究；H.K.、A.F.、P.J.、J.C.、Y.B. 与 R.A.V. 实施研究；J.S.R.、J.B.T.、S.T.P. 与 R.A.V. 提供新的试剂/分析工具；H.K.、A.F.、P.J. 与 Y.B. 分析数据；H.K. 负责可视化；E.F. 负责监督与项目管理；H.K.、A.F.、P.J.、J.S.R.、Y.B.、J.B.T.、S.T.P.、R.A.V. 与 E.F. 撰写论文。作者声明无利益冲突。本文为 PNAS 直接投稿。</p>
 <h2 id="参考文献">参考文献</h2>
