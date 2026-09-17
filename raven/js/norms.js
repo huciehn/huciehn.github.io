@@ -1,123 +1,115 @@
 /* =========================================================
- * norms.js — 计分与常模换算
- * 原始分 → 百分等级（分段线性插值）→ 离差智商估计（正态等价）
+ * norms.js — 计分与常模换算（依手册编制）
+ * 《瑞文标准推理测验中国城市修订版》手册：
+ *  · 查表规则（手册第 13 页）：从被试年龄组纵列中找到「刚刚
+ *    小于或等于」被试所得分数的分数，其行首百分等级即标准分。
+ *    —— 阶梯式查表，不做插值。
+ *  · 智力水平分级（手册表 4）：≥95 一级 / 75–95 二级 /
+ *    25–75 三级 / 5–25 四级 / <5 五级。
+ *  · 年龄组划界（手册第 12 页）：半岁组 X 岁 3 月 1 天 — 8 月
+ *    30 天；整岁组 X 岁 = 前 1 年 9 月 1 天 — 当 X 年 2 月 30 天；
+ *    17—19 / 20—29 / … / 60—69 各组以下限为标志；70 岁以上。
  * 依赖 config.js（先加载）
  * ========================================================= */
 
 var RavenNorms = (function (cfg) {
 
-  /* 标准正态分布累积函数 Φ(z)（Zelen & Severo 近似） */
-  function phi(z) {
-    // Abramowitz-Stegun 26.2.17
-    var t = 1 / (1 + 0.2316419 * Math.abs(z));
-    var d = 0.3989422804014327 * Math.exp(-z * z / 2);
-    var p = d * t * ((((1.330274429 * t - 1.821255978) * t + 1.781477937) * t -
-             0.356563782) * t + 0.319381530);
-    return z > 0 ? 1 - p : p;
-  }
+  var PR_STEPS = [95, 90, 75, 50, 25, 10, 5];
 
-  /* 标准正态分位数 Φ⁻¹(p)，Acklam 算法 */
-  function probit(p) {
-    if (p <= 0) return -Infinity;
-    if (p >= 1) return Infinity;
-    var a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02,
-             1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00];
-    var b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02,
-             6.680131188771972e+01, -1.328068155288572e+01];
-    var c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00,
-             -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00];
-    var d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00,
-             3.754408661907416e+00];
-    var pl = 0.02425, ph = 1 - pl, q, r;
-    if (p < pl) {
-      q = Math.sqrt(-2 * Math.log(p));
-      return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
-             ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
-    }
-    if (p <= ph) {
-      q = p - 0.5; r = q * q;
-      return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q /
-             (((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
-    }
-    q = Math.sqrt(-2 * Math.log(1 - p));
-    return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
-            ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
-  }
-
-  function anchorsFor(ageKey) {
-    var row = cfg.NORM_ROWS[ageKey] || cfg.NORM_ROWS['20'];
-    var PRS = [95, 90, 75, 50, 25, 10, 5];
-    var pts = [];
-    for (var i = 0; i < 7; i++) pts.push([row[i], PRS[i]]);   // [原始分, 百分等级]
-    pts.sort(function (x, y) { return x[0] - y[0]; });        // 分数升序 → 等级降序
-    // 去重防同分导致斜率无穷大
-    var clean = [pts[0]];
-    for (var j = 1; j < pts.length; j++) {
-      if (pts[j][0] !== clean[clean.length - 1][0]) clean.push(pts[j]);
-    }
-    return clean;
-  }
-
-  /* 原始分 → 百分等级（分段线性插值，两端保守外推并截断于 [0.5, 99.5]） */
+  /* 原始分 → 百分等级（手册阶梯查表）。
+   * 返回 { band, display }：band ∈ {95,90,75,50,25,10,5,0}，
+   * band=0 表示低于常模表 5% 档；display 为报告用文字。 */
   function percentile(raw, ageKey) {
-    var pts = anchorsFor(ageKey), n = pts.length;
+    var row = cfg.NORM_ROWS[ageKey] || cfg.NORM_ROWS['20'];
     raw = Math.max(0, Math.min(60, raw));
-    var pr;
-    if (raw <= pts[0][0]) {
-      var s0 = n > 1 ? (pts[1][1] - pts[0][1]) / (pts[1][0] - pts[0][0]) : 0;
-      pr = pts[0][1] + (raw - pts[0][0]) * s0;               // 低端沿首段斜率外推
-    } else if (raw >= pts[n - 1][0]) {
-      var s1 = n > 1 ? (pts[n - 1][1] - pts[n - 2][1]) / (pts[n - 1][0] - pts[n - 2][0]) : 0;
-      pr = pts[n - 1][1] + (raw - pts[n - 1][0]) * s1;       // 高端沿末段斜率外推
-    } else {
-      for (var i = 0; i < n - 1; i++) {
-        if (raw >= pts[i][0] && raw <= pts[i + 1][0]) {
-          var t = (raw - pts[i][0]) / (pts[i + 1][0] - pts[i][0]);
-          pr = pts[i][1] + t * (pts[i + 1][1] - pts[i][1]);
-          break;
-        }
+    for (var i = 0; i < PR_STEPS.length; i++) {
+      if (raw >= row[i]) {
+        var b = PR_STEPS[i];
+        return { band: b, display: (b === 95 ? '≥95' : String(b)) };
       }
     }
-    return Math.max(0.5, Math.min(99.5, pr));
+    return { band: 0, display: '<5' };
   }
 
-  /* 百分等级 → 离差智商估计（M=100，SD=15，正态等价换算） */
-  function iqFromPR(pr) {
-    return Math.round(100 + 15 * probit(pr / 100));
-  }
-
-  /* 五级分级 */
-  function gradeOf(prExact) {
+  /* 百分等级档 → 智力水平五级（手册表 4） */
+  function gradeOf(band) {
     for (var i = 0; i < cfg.GRADES.length; i++) {
-      if (prExact >= cfg.GRADES[i].min) return cfg.GRADES[i];
+      if (band >= cfg.GRADES[i].min) return cfg.GRADES[i];
     }
     return cfg.GRADES[cfg.GRADES.length - 1];
   }
 
   /* 汇总：由总分与年龄组得到完整指标 */
   function evaluate(totalRaw, ageKey) {
-    var pr = percentile(totalRaw, ageKey);          // 连续值，用于插值与 IQ
-    var prDisp = Math.round(pr);                    // 展示用整数
-    var grade = gradeOf(pr);
+    var pr = percentile(totalRaw, ageKey);
+    var grade = gradeOf(pr.band);
     return {
       total: totalRaw,
-      pr: pr,
-      prDisplay: prDisp,
-      iq: iqFromPR(pr),
-      ci: cfg.IQ_CI,
+      band: pr.band,
+      prDisplay: pr.display,
       level: grade.level,
       label: grade.label,
       gradeText: grade.text
     };
   }
 
+  /* ---------- 实足年龄 → 年龄组（手册第 12 页划界规则） ----------
+   * birth 'YYYY-MM-DD'；test Date（缺省今天）。
+   * 返回 { key, label, ageText, outOfRange }。
+   * 边界备注：手册明文半岁组止于 X 岁 8 月 30 天、17—19 组始于
+   * 17 岁 0 月 1 天，16 岁 9 月—16 岁 11 月 30 天在字面上无归属，
+   * 本实现保守并入相邻的 16½ 岁组。 */
+  function ageGroupFromBirth(birth, test) {
+    var out = { key: null, label: '', ageText: '', outOfRange: true };
+    if (!birth) return out;
+    var p = birth.split('-');
+    if (p.length !== 3) return out;
+    var by = +p[0], bm = +p[1], bd = +p[2];
+    if (!by || !bm || !bd) return out;
+    var t = test || new Date();
+    var ty = t.getFullYear(), tm = t.getMonth() + 1, td = t.getDate();
+
+    /* 实足年龄（年、月；日仅用于生日未满情形，手册以月划界） */
+    var months = (ty - by) * 12 + (tm - bm) - (td < bd ? 1 : 0);
+    if (months < 0) return out;
+    var y = Math.floor(months / 12), m = months % 12;
+    out.ageText = y + ' 岁 ' + m + ' 个月';
+
+    if (y < 5 || (y === 5 && m < 3)) return out;            /* 低于手册适用下限 */
+
+    function half(x)  { return (y === x && m >= 3 && m <= 8) ? String(x) + '.5' : null; }
+    function whole(x) { return (((y === x - 1 && m >= 9)) || (y === x && m <= 2)) ? String(x) : null; }
+
+    var key = null;
+    if (y >= 70)      key = '70';
+    else if (y >= 60) key = '60';
+    else if (y >= 50) key = '50';
+    else if (y >= 40) key = '40';
+    else if (y >= 30) key = '30';
+    else if (y >= 20) key = '20';
+    else if (y >= 17) key = '17';
+    else {
+      var k = null, x;
+      for (x = 6; x <= 16 && !k; x++) k = whole(x);
+      for (x = 5; x <= 16 && !k; x++) k = half(x);
+      /* 16 岁 9—11 月：手册字面空档，并入 16½ 岁组 */
+      if (!k && y === 16 && m >= 9) k = '16.5';
+      key = k;
+    }
+    if (!key) return out;
+    out.key = key;
+    out.outOfRange = false;
+    for (var i = 0; i < cfg.AGE_OPTIONS.length; i++) {
+      if (cfg.AGE_OPTIONS[i][0] === key) out.label = cfg.AGE_OPTIONS[i][1];
+    }
+    return out;
+  }
+
   return {
     percentile: percentile,
-    probit: probit,
-    phi: phi,
-    iqFromPR: iqFromPR,
     gradeOf: gradeOf,
-    evaluate: evaluate
+    evaluate: evaluate,
+    ageGroupFromBirth: ageGroupFromBirth
   };
 
 })(RAVEN_CONFIG);

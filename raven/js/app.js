@@ -80,6 +80,7 @@
   /* ---------- 欢迎页 ---------- */
   async function initWelcome() {
     renderAgeSelect();
+    bindBirthInput();
     renderHistory();
     var status = $('asset-status');
     status.textContent = '正在探测 assets/ 目录中的题图……';
@@ -118,6 +119,27 @@
       o.value = op[0]; o.textContent = op[1];
       if (op[0] === S.ageKey) o.selected = true;
       sel.appendChild(o);
+    });
+  }
+
+  /* 出生日期 → 年龄组（手册第 12 页划界规则），自动同步下拉框；
+   * 下拉框仍可手动改写（以其为准），出生日期只负责「自动划定」。 */
+  function bindBirthInput() {
+    var inp = $('birth-input');
+    if (!inp || inp.dataset.bound) return;
+    inp.dataset.bound = '1';
+    inp.addEventListener('change', function () {
+      var g = RavenNorms.ageGroupFromBirth(inp.value, new Date());
+      var hint = $('birth-hint');
+      if (!g.key) {
+        if (hint) hint.textContent = g.ageText
+          ? '实足年龄 ' + g.ageText + '：低于手册适用范围（常模自 5 岁半组起，5 岁 3 个月 1 天起可归入）。'
+          : '请先选择出生日期。';
+        return;
+      }
+      S.ageKey = g.key;
+      renderAgeSelect();
+      if (hint) hint.textContent = '实足年龄 ' + g.ageText + '，依手册划界规则归入「' + g.label + '」组。';
     });
   }
 
@@ -295,7 +317,7 @@
     hist.push({
       time: new Date().toLocaleString('zh-CN', { hour12: false }),
       mode: S.mode, ageLabel: ageLabel, total: total,
-      pr: ev.prDisplay, level: ev.level, label: ev.label, iq: ev.iq, seconds: secs
+      pr: ev.prDisplay, level: ev.level, label: ev.label, seconds: secs
     });
     saveHistory(hist);
     show('result');
@@ -303,26 +325,31 @@
   }
 
   function setSentence(cnt) {
-    if (cnt >= 10) return '该维度相对突出，是当前推理表现中的优势成分。';
-    if (cnt <= 4) return '该维度正确率偏低，相对同龄组常模属于薄弱环节，可作为训练切入点。';
-    return '该维度表现平稳，处于常态范围。';
+    if (cnt >= 10) return '该维度相对突出，是本次作答中的优势成分。';
+    if (cnt <= 4) return '该组正确率偏低，可作为后续训练的切入点。';
+    return '该维度表现平稳。';
   }
 
   function renderReport(ev, perSet, secs, ageLabel) {
     $('report-core').innerHTML =
       card('总分', ev.total + ' / 60') +
-      card('百分等级', 'PR ≈ ' + ev.prDisplay + '%') +
-      card('智商估计', 'IQ ≈ ' + ev.iq + '（±' + ev.ci + '）') +
-      card('智力等级', ev.level + ' · ' + ev.label) +
-      card('用时', fmtTime(secs)) +
-      card('常模参照组', ageLabel);
+      card('百分等级', 'PR ' + ev.prDisplay + '%') +
+      card('智力水平分级', ev.level + ' · ' + ev.label) +
+      card('常模参照组', ageLabel) +
+      card('用时', fmtTime(secs));
 
-    var cmp = '本次测验原始总分为 ' + ev.total + ' 分（满分 60）。对照' + esc(ageLabel) +
-      '的中国城市常模，该成绩约位于第 <b>' + ev.prDisplay + '</b> 百分等级，即在同龄人群中大约有 <b>' +
-      ev.prDisplay + '%</b> 的人成绩低于此水平，<b>' + (100 - ev.prDisplay) + '%</b> 的人高于此水平。' +
-      '依据五级分级标准，判定为<b>' + esc(ev.gradeText) + '（' + ev.level + '）</b>。' +
-      '按离差智商正态等价换算（M=100，SD=15），智商估计值约为 <b>IQ ≈ ' + ev.iq + '</b>；考虑测量误差，' +
-      '其 90% 置信区间约为 ' + (ev.iq - ev.ci) + ' 至 ' + (ev.iq + ev.ci) + ' 分。';
+    /* 手册查表口径：取年龄组纵列中「刚刚小于或等于」原始分的分数档，
+     * 其行首百分等级即标准分；分级依手册表 4。 */
+    var cmp = '本次测验原始总分为 <b>' + ev.total + '</b> 分（满分 60）。' +
+      '按手册查表方法，在「' + esc(ageLabel) + '」年龄组常模列中，取刚刚小于或等于该分数的分数档，' +
+      '对应百分等级为 <b>PR ' + ev.prDisplay + '%</b>' +
+      (ev.band === 95 ? '（成绩达到或超过同龄组 95% 的水平）' :
+       ev.band === 0 ? '（低于同龄组常模表 5% 档）' :
+       '（即同龄组常模中约有 ' + ev.prDisplay + '% 的人成绩不高于此水平）') +
+      '。依据手册表 4 智力水平分级标准，评定为<b>第' + ev.level.replace('级', '') + '级 · ' +
+      esc(ev.gradeText) + '（' + ev.level + '）</b>。' +
+      '手册提示：所得分数并非终生不变，受时空限制、有时有偶然性，解释时用词不应绝对化，' +
+      '应结合被试的实际表现与其他测验指标综合参考。';
 
     var bars = '';
     cfg.SET_ORDER.forEach(function (st) {
@@ -341,6 +368,7 @@
       '<ul class="limits">' +
       '<li>本测验测的是推理类一般智力因素（G 因素），不等于全部智力，更不能代表未来成就。</li>' +
       '<li>结果受测试状态、环境干扰、练习效应影响，波动可达数分；6 个月内重测会因记忆效应失真。</li>' +
+      '<li>本页采用手册规定的阶梯查表法与五级分级，不提供智商（IQ）换算——手册常模仅以百分等级表示，任何 IQ 折算均属手册之外的推算。</li>' +
       '<li>图像模式的题图为流传版本，选项排列若与内置计分键不一致，请在 config.js 中核对修改后再使用。</li>' +
       '<li>本报告仅供个人参考与教育筛选，不构成临床诊断；涉及入学、选拔或诊断请使用正版施测工具并由专业人员解释。</li>' +
       '</ul>' +
@@ -357,7 +385,7 @@
     var data = JSON.stringify({
       date: new Date().toISOString(), mode: r.mode, seed: r.seed,
       ageGroup: r.ageLabel, total: r.total, percentile: r.ev.prDisplay,
-      iqEstimate: r.ev.iq, ci: r.ev.ci, level: r.ev.level,
+      level: r.ev.level, gradeText: r.ev.gradeText,
       perSet: r.perSet, secondsUsed: r.seconds,
       answers: r.answers, answerKey: cfg.ANSWERS, sourceNote: cfg.SOURCE_NOTE
     }, null, 2);
