@@ -318,6 +318,7 @@
         wrongs.push({
           id: it.id,
           stemHTML: it.stemHTML,
+          ansHTML: it.optionsHTML ? it.optionsHTML[it.answer - 1] : null,  // 平行卷：正确选项图形；图像卷题图自带选项行
           answer: it.answer,
           unanswered: S.answers[i] == null
         });
@@ -381,7 +382,13 @@
     } else {
       review = '<ul class="review-grid">' + wrongs.map(function (w) {
         return '<li class="review-card">' +
+          '<div class="review-body">' +
           '<div class="review-stem">' + w.stemHTML + '</div>' +
+          (w.ansHTML
+            ? '<div class="review-ansopt"><span class="review-ansbadge">' + w.answer + '</span>' +
+              '<div class="review-anssvg">' + w.ansHTML + '</div></div>'
+            : '') +
+          '</div>' +
           '<div class="review-meta"><span class="review-id">' + w.id + '</span>' +
           '<span class="review-ans">正确答案 ' + w.answer + '</span>' +
           (w.unanswered ? '<span class="review-miss">未作答</span>' : '') +
