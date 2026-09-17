@@ -311,7 +311,20 @@
     var secs = Math.floor((Date.now() - S.t0) / 1000);
     var ageLabel = (cfg.AGE_OPTIONS.find(function (o) { return o[0] === S.ageKey; }) || ['', S.ageKey])[1];
 
-    renderReport(ev, perSet, secs, ageLabel);
+    /* 错题清单：答错或未答的题，供报告「错题解析」呈现（题干 + 正确答案） */
+    var wrongs = [];
+    S.items.forEach(function (it, i) {
+      if (S.answers[i] !== it.answer) {
+        wrongs.push({
+          id: it.id,
+          stemHTML: it.stemHTML,
+          answer: it.answer,
+          unanswered: S.answers[i] == null
+        });
+      }
+    });
+
+    renderReport(ev, perSet, secs, ageLabel, wrongs);
 
     var hist = loadHistory();
     hist.push({
@@ -321,7 +334,7 @@
     });
     saveHistory(hist);
     show('result');
-    window.__lastResult = { ev: ev, perSet: perSet, total: total, seconds: secs, ageLabel: ageLabel, answers: S.answers.slice(), mode: S.mode, seed: S.seed };
+    window.__lastResult = { ev: ev, perSet: perSet, total: total, seconds: secs, ageLabel: ageLabel, answers: S.answers.slice(), mode: S.mode, seed: S.seed, wrongs: wrongs };
   }
 
   function setSentence(cnt) {
@@ -330,7 +343,7 @@
     return '该维度表现平稳。';
   }
 
-  function renderReport(ev, perSet, secs, ageLabel) {
+  function renderReport(ev, perSet, secs, ageLabel, wrongs) {
     $('report-core').innerHTML =
       card('总分', ev.total + ' / 60') +
       card('百分等级', 'PR ' + ev.prDisplay + '%') +
@@ -361,9 +374,25 @@
         '<p class="set-note">' + esc(cfg.SET_INFO[st].desc) + '——' + setSentence(cnt) + '</p>';
     });
 
+    /* 错题解析：只给题目与正确答案，不作原因解释 */
+    var review = '';
+    if (wrongs.length === 0) {
+      review = '<p class="review-allright">全卷 60 题全部答对。</p>';
+    } else {
+      review = '<ul class="review-grid">' + wrongs.map(function (w) {
+        return '<li class="review-card">' +
+          '<div class="review-stem">' + w.stemHTML + '</div>' +
+          '<div class="review-meta"><span class="review-id">' + w.id + '</span>' +
+          '<span class="review-ans">正确答案 ' + w.answer + '</span>' +
+          (w.unanswered ? '<span class="review-miss">未作答</span>' : '') +
+          '</div></li>';
+      }).join('') + '</ul>';
+    }
+
     $('report-detail').innerHTML =
       '<h3>与常模的比较结论</h3><p class="conclusion">' + cmp + '</p>' +
       '<h3>分测验剖析（A–E）</h3>' + bars +
+      '<h3>错题解析（' + wrongs.length + ' 题）</h3>' + review +
       '<h3>结果解释的边界</h3>' +
       '<ul class="limits">' +
       '<li>本测验测的是推理类一般智力因素（G 因素），不等于全部智力，更不能代表未来成就。</li>' +
