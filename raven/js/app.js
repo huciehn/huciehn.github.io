@@ -429,6 +429,8 @@
     a.href = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
     a.download = 'raven_result_' + Date.now() + '.json';
     a.click();
+    // 下载已派发即回收，避免每次导出泄漏一个 blob URL
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
   }
 
   /* ---------- 示例题 ---------- */
@@ -507,5 +509,8 @@
     if (S.timerId) { clearInterval(S.timerId); S.timerId = null; }
     cancelAutoNext();
   });
+
+  // 就绪标志：页面守护靠它确认本文件也加载成功（IIFE 不暴露其他可探测的全局）
+  window.__ravenAppReady = true;
 
 })();
