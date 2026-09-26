@@ -1,0 +1,82 @@
+[
+  {
+    "family": "Qigong Accent",
+    "weight": "400 700",
+    "part": "common",
+    "glyphs": 2092,
+    "bytes": 831268,
+    "file": "qigong-common.woff2"
+  },
+  {
+    "family": "Qigong Accent",
+    "weight": "400 700",
+    "part": "extended",
+    "glyphs": 6214,
+    "bytes": 2951992,
+    "file": "qigong-extended.woff"
+  },
+  {
+    "family": "FangSong Web",
+    "weight": "400 700",
+    "part": "common",
+    "glyphs": 2090,
+    "bytes": 295308,
+    "file": "fangsong-common.woff2"
+  },
+  {
+    "family": "FangSong Web",
+    "weight": "400 700",
+    "part": "extended",
+    "glyphs": 5013,
+    "bytes": 1038372,
+    "file": "fangsong-extended.woff"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "400 500",
+    "part": "common",
+    "glyphs": 2218,
+    "bytes": 529692,
+    "file": "serif-400-common.woff2"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "400 500",
+    "part": "extended",
+    "glyphs": 28629,
+    "bytes": 9539864,
+    "file": "serif-400-extended.woff"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "600",
+    "part": "common",
+    "glyphs": 2218,
+    "bytes": 539524,
+    "file": "serif-600-common.woff2"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "600",
+    "part": "extended",
+    "glyphs": 28629,
+    "bytes": 9801176,
+    "file": "serif-600-extended.woff"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "700",
+    "part": "common",
+    "glyphs": 2218,
+    "bytes": 551096,
+    "file": "serif-700-common.woff2"
+  },
+  {
+    "family": "Source Han Web",
+    "weight": "700",
+    "part": "extended",
+    "glyphs": 28629,
+    "bytes": 10108188,
+    "file": "serif-700-extended.woff"
+  }
+]
