@@ -12,8 +12,8 @@
     "weight": "400 700",
     "part": "extended",
     "glyphs": 6214,
-    "bytes": 2951992,
-    "file": "qigong-extended.woff"
+    "bytes": 2524404,
+    "file": "qigong-extended.woff2"
   },
   {
     "family": "FangSong Web",
@@ -28,8 +28,8 @@
     "weight": "400 700",
     "part": "extended",
     "glyphs": 5013,
-    "bytes": 1038372,
-    "file": "fangsong-extended.woff"
+    "bytes": 818108,
+    "file": "fangsong-extended.woff2"
   },
   {
     "family": "Source Han Web",
@@ -44,8 +44,8 @@
     "weight": "400 500",
     "part": "extended",
     "glyphs": 28629,
-    "bytes": 9539864,
-    "file": "serif-400-extended.woff"
+    "bytes": 7931440,
+    "file": "serif-400-extended.woff2"
   },
   {
     "family": "Source Han Web",
@@ -60,8 +60,8 @@
     "weight": "600",
     "part": "extended",
     "glyphs": 28629,
-    "bytes": 9801176,
-    "file": "serif-600-extended.woff"
+    "bytes": 8225488,
+    "file": "serif-600-extended.woff2"
   },
   {
     "family": "Source Han Web",
@@ -76,7 +76,7 @@
     "weight": "700",
     "part": "extended",
     "glyphs": 28629,
-    "bytes": 10108188,
-    "file": "serif-700-extended.woff"
+    "bytes": 8541480,
+    "file": "serif-700-extended.woff2"
   }
 ]
