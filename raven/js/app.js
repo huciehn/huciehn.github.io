@@ -30,6 +30,7 @@
     if (S.autoNextTimer) { clearTimeout(S.autoNextTimer); S.autoNextTimer = null; }
   }
   var IDS = [];               // A1..E12 顺序
+  var welcomeGeneration = 0;
   cfg.SET_ORDER.forEach(function (st) {
     for (var i = 1; i <= 12; i++) IDS.push(st + i);
   });
@@ -40,23 +41,36 @@
     return new Promise(function (res) {
       var done = false;
       var im = new Image();
-      im.onload = function () { if (!done) { done = true; res(true); } };
-      im.onerror = function () { if (!done) { done = true; res(false); } };
-      setTimeout(function () { if (!done) { done = true; res(false); } }, timeout || 1500);
+      var timer;
+      function settle(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        im.onload = im.onerror = null;
+        res(ok);
+      }
+      im.onload = function () { settle(true); };
+      im.onerror = function () { settle(false); };
+      timer = setTimeout(function () { settle(false); }, timeout || 8000);
       im.src = url;
     });
   }
-  async function probeAssets(onProgress) {
-    var map = {}, found = 0;
-    for (var i = 0; i < IDS.length; i++) {
+  async function probeAssets(onProgress, generation) {
+    var map = {}, found = 0, next = 0, completed = 0;
+    async function worker() {
+      while (next < IDS.length && generation === welcomeGeneration) {
+      var i = next++;
       var id = IDS[i], url = null;
       for (var e = 0; e < EXTS.length && !url; e++) {
         var cand = '/raven/assets/' + id + '.' + EXTS[e];
         if (await probeUrl(cand)) url = cand;
       }
       if (url) { map[id] = url; found++; }
-      if (onProgress && (i % 10 === 9 || i === IDS.length - 1)) onProgress(i + 1);
+      completed++;
+      if (onProgress && generation === welcomeGeneration) onProgress(completed);
+      }
     }
+    await Promise.all(Array.from({ length: 6 }, worker));
     return { map: map, found: found };
   }
 
@@ -79,14 +93,17 @@
 
   /* ---------- 欢迎页 ---------- */
   async function initWelcome() {
+    var generation = ++welcomeGeneration;
+    S.assetsReady = false;
     renderAgeSelect();
     bindBirthInput();
     renderHistory();
     var status = $('asset-status');
-    status.textContent = '正在探测 assets/ 目录中的题图……';
+    status.textContent = '正在加载题图……';
     var r = await probeAssets(function (n) {
-      status.textContent = '正在探测题图……' + n + '/60';
-    });
+      status.textContent = '正在加载题图……' + n + '/60';
+    }, generation);
+    if (generation !== welcomeGeneration || !status.isConnected) return;
     S.assetMap = r.map; S.assetCount = r.found;
     S.assetsReady = true;
     updateModeUI();
@@ -94,21 +111,19 @@
 
   function updateModeUI() {
     var status = $('asset-status');
-    if (S.assetCount >= 55) {
+    if (!status) return;
+    if (S.assetCount === IDS.length) {
       status.innerHTML = '<span class="ok">已检测到 ' + S.assetCount + '/60 张题图，可使用图像模式。</span>';
     } else if (S.assetCount > 0) {
-      status.innerHTML = '<span class="warn">仅检测到 ' + S.assetCount + '/60 张题图。请按 README 补齐命名（A1.jpg … E12.jpg），或改用内置平行卷模式。</span>';
+      status.innerHTML = '<span class="warn">已加载 ' + S.assetCount + '/60 张题图。请刷新重试，或手动选择内置平行卷。</span>';
     } else {
-      status.innerHTML = '<span class="warn">assets/ 未检测到题图。将 60 张题图按 A1.jpg…E12.jpg 放入 assets/ 后重启本页即可使用图像模式；当前可用内置平行卷。</span>';
+      status.innerHTML = '<span class="warn">题图暂时无法加载。请检查网络后刷新，或手动选择内置平行卷。</span>';
     }
-    var imgOk = S.assetCount >= 55;
+    var imgOk = S.assetsReady && S.assetCount === IDS.length;
     document.querySelectorAll('input[name=mode]').forEach(function (el) {
       el.disabled = (el.value === 'image') && !imgOk;
     });
-    var checked = document.querySelector('input[name=mode]:checked');
-    if ((!checked || checked.disabled)) {
-      document.querySelector('input[name=mode][value=' + (imgOk ? 'image' : 'gen') + ']').checked = true;
-    }
+    // Never silently replace the user's chosen test with a different test.
   }
 
   function renderAgeSelect() {
@@ -145,7 +160,13 @@
 
   /* ---------- 历史记录 ---------- */
   function loadHistory() {
-    try { return JSON.parse(localStorage.getItem('raven_history_v1') || '[]'); }
+    try {
+      var data = JSON.parse(localStorage.getItem('raven_history_v1') || '[]');
+      return Array.isArray(data) ? data.filter(function (h) {
+        return h && typeof h === 'object' && Number.isFinite(h.total) &&
+          (typeof h.pr === 'string' || Number.isFinite(h.pr));
+      }).slice(-20) : [];
+    }
     catch (e) { return []; }
   }
   function saveHistory(list) {
@@ -158,7 +179,7 @@
     var html = '<table><thead><tr><th>时间</th><th>模式</th><th>年龄组</th><th>总分</th><th>百分等级</th><th>等级</th><th></th></tr></thead><tbody>';
     list.forEach(function (h, i) {
       html += '<tr><td>' + esc(h.time) + '</td><td>' + (h.mode === 'image' ? '图像卷' : '平行卷') +
-              '</td><td>' + esc(h.ageLabel) + '</td><td>' + h.total + '/60</td><td>' + h.pr +
+              '</td><td>' + esc(h.ageLabel) + '</td><td>' + h.total + '/60</td><td>' + esc(h.pr) +
               '%</td><td>' + esc(h.level + '·' + h.label) + '</td><td><button class="link" data-del="' + i + '">删除</button></td></tr>';
     });
     html += '</tbody></table>';
@@ -174,9 +195,11 @@
   function startTest() {
     S.mode = document.querySelector('input[name=mode]:checked').value;
     /* 题图探测完成前（assetMap 为空）图像卷全部题图会 src=undefined 空白；拦截并提示等待，守护经典题图模式 */
-    if (S.mode === 'image' && !S.assetsReady) {
+    if (S.mode === 'image' && (!S.assetsReady || S.assetCount !== IDS.length)) {
       var st = $('asset-status');
-      if (st) st.textContent = '题图仍在加载中，请等待状态变为“已检测到 60/60 张题图”后再开始……';
+      if (st) st.textContent = S.assetsReady
+        ? '题图未加载完整，请刷新重试，或手动选择内置平行卷。'
+        : '题图仍在加载中，请等待全部 60 张题图就绪后再开始……';
       return;
     }
     S.ageKey = $('age-select').value;
@@ -488,7 +511,7 @@
         state: S,
         start: function (mode, ageKey, useRandomSeed) {
           S.mode = mode || 'gen'; S.ageKey = ageKey || '20';
-          S.mode = (S.mode === 'image' && S.assetCount < 55) ? 'gen' : S.mode;
+          if (S.mode === 'image' && S.assetCount !== IDS.length) throw new Error('Incomplete image test');
           S.seed = useRandomSeed ? 777 : 20260824;
           buildItems(); S.answers = S.items.map(function () { return null; });
           S.cur = 0; S.finished = false; S.t0 = Date.now() - 754000; // 固定演示用时 12:34
@@ -506,6 +529,7 @@
   document.addEventListener('astro:page-load', initRavenPage);
   // SPA 换页兜底：清掉计时器与自动前进排队，避免在非测验页抛错耗电
   document.addEventListener('astro:before-swap', function () {
+    welcomeGeneration++;
     if (S.timerId) { clearInterval(S.timerId); S.timerId = null; }
     cancelAutoNext();
   });
