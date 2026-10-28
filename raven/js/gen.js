@@ -98,7 +98,7 @@ var RavenGen = (function () {
                        sp.size % 3, sp.fill % 3, sp.rot || 0);
     } else if (k === 'dots') {
       var lay = DOT_LAYOUTS[Math.max(1, Math.min(6, sp.count))];
-      var dr = s * 0.085, dcx = ox + s / 2, dcy = oy + s / 2;
+      var dr = s * 0.085;
       for (var i = 0; i < lay.length; i++) {
         inner += '<circle cx="' + (ox + lay[i][0] * s).toFixed(1) + '" cy="' + (oy + lay[i][1] * s).toFixed(1) +
                  '" r="' + dr.toFixed(1) + '" fill="' + FILLS[sp.fill % 3] + '" stroke="#2b2f36" stroke-width="' + Math.max(1.2, s * 0.018) + '"/>';
@@ -161,7 +161,7 @@ var RavenGen = (function () {
   function one(shape, fill, size, rot) { return { kind: 'one', shape: shape, fill: fill, size: size, rot: rot }; }
 
   /* A 组：一行 5 帧，第 5 帧缺 */
-  function seriesRulesA(rng) {
+  function seriesRulesA() {
     return [
       { name: '数量递增', gen: function (i) { return { kind: 'dots', count: 1 + i, fill: 2 }; } },
       { name: '大小递增', gen: function (i) { return one(0, 0, Math.min(2, i), 0); } },
@@ -195,9 +195,8 @@ var RavenGen = (function () {
   ];
 
   /* C/D/E 组：3×3 网格规则 */
-  function gridRules(kind, rng) {
+  function gridRules(kind) {
     var R = [];
-    var lat = function (r, c, sh) { return (c + r * sh) % 3; };
     if (kind === 'C') {
       R.push(
         { name: '行列累加数量', gen: function (r, c) { return { kind: 'dots', count: 1 + r + c, fill: 2 }; } },
@@ -300,11 +299,11 @@ var RavenGen = (function () {
     var rng = mulberry32(seed || 20260824);
     var items = [];
     var sets = [
-      { id: 'A', format: 'series', rules: seriesRulesA(rng), optCount: 6 },
+      { id: 'A', format: 'series', rules: seriesRulesA(), optCount: 6 },
       { id: 'B', format: 'analogy', rules: BT, optCount: 6 },
-      { id: 'C', format: 'grid3', rules: gridRules('C', rng), optCount: 8 },
-      { id: 'D', format: 'grid3', rules: gridRules('D', rng), optCount: 8 },
-      { id: 'E', format: 'grid3', rules: gridRules('E', rng), optCount: 8 }
+      { id: 'C', format: 'grid3', rules: gridRules('C'), optCount: 8 },
+      { id: 'D', format: 'grid3', rules: gridRules('D'), optCount: 8 },
+      { id: 'E', format: 'grid3', rules: gridRules('E'), optCount: 8 }
     ];
     sets.forEach(function (set) {
       for (var q = 0; q < 12; q++) {
@@ -344,7 +343,6 @@ var RavenGen = (function () {
 
   /* 示例题（指导语页交互演示） */
   function demo() {
-    var specs = [{ kind: 'dots', count: 1, fill: 2 }, { kind: 'dots', count: 2, fill: 2 }, { kind: 'dots', count: 3, fill: 2 }];
     var correct = { kind: 'dots', count: 4, fill: 2 };
     var wrong = [{ kind: 'dots', count: 2, fill: 2 }, { kind: 'dots', count: 5, fill: 0 }, { kind: 'dots', count: 4, fill: 0 }];
     var all = [wrong[0], correct, wrong[1], wrong[2]];
